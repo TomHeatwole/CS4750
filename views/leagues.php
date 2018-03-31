@@ -1,4 +1,6 @@
 <?php 
     include('../setup.php');
-    echo $username;
+    $conn = mysqli_connect($host, $username, $password, $database);
+    $result = $conn->query("SELECT * FROM User");
+    echo $result->fetch_assoc()['username'];
 ?>
