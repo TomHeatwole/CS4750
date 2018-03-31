@@ -12,13 +12,11 @@
         <?php
             include('../setup.php'); #This file is in .gitignore
             $conn = mysqli_connect($host, $username, $password, $database);
-            $result = $conn->query("SELECT * FROM League");
+            $result = $conn->query("SELECT * FROM League NATURAL JOIN Moderates");
             while ($row = $result->fetch_assoc()) {
-                $getAdmin = $conn->query("SELECT username FROM Moderates WHERE league_id=" . $row['league_id']);
-                $admin = $getAdmin->fetch_assoc();
                 echo "<tr>";
                 echo "<td>" . $row['name'] . "</td>";
-                echo "<td>" . $admin['username'] . "</td>";
+                echo "<td>" . $row['username'] . "</td>";
                 echo "<td>" . "placeholder" . "</td>";
                 echo "</tr>";
             }
