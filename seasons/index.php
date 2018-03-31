@@ -15,20 +15,18 @@
             echo "<a href='../leagues'>List of leagues</a>";
             exit();
         }
-        echo "<h1>". $ln['name'] . "</h1>";
+        $result = $conn->query("SELECT s.season_number, s.league_id, s.name, w.username FROM Season s LEFT JOIN SeasonWinner w ON s.season_number=w.season_number AND s.league_id = w.league_id WHERE s.league_id=" . $leagueId . " ORDER BY s.season_number DESC");
+        echo "<h1>". $ln['name'] . "'s Seasons</h1>";
         echo "<table><tr>";
-        echo "<th>Player</th>";
-        echo "<th>ELO</th>";
-        echo "<th>League Record</th>";
+        echo "<th>Name</th>";
+        echo "<th>Winner</th>";
         echo "</tr>";
-        $result = $conn->query("SELECT *, l.l_losses - l.l_wins AS difference FROM BelongsTo b NATURAL JOIN LeagueRecord  l NATURAL JOIN Player p WHERE league_id=" . $leagueId . " ORDER BY difference");
         while ($row = $result->fetch_assoc()) {
             echo "<tr>";
-            echo "<td>" . $row['username'] . "</td>";
-            echo "<td>" . $row['elo'] . "</td>";
-            echo "<td>" . $row['l_wins'] . " - " . $row["l_losses"] . "</td>";
+            echo "<td><a href='../season?id=" . $leagueId . "&num=" . $row['season_number'] . "'>" . $row['name'] . "</a></td>";
+            echo "<td>" . (($row['username']) ? "<a href='../player?username=" . $row['username'] . "'>" . $row['username'] . "</a>" : "TBD") . "</td>";
             echo "</tr>";
         }
-        echo "</table>";
+
     ?>
 </body>
