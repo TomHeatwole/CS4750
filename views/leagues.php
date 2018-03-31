@@ -14,9 +14,11 @@
             $conn = mysqli_connect($host, $username, $password, $database);
             $result = $conn->query("SELECT * FROM League");
             while ($row = $result->fetch_assoc()) {
+                $getAdmin = $conn->query("SELECT username FROM Moderates WHERE league_id=" . $row['league_id']);
+                $admin = $getAdmin->fetch_assoc();
                 echo "<tr>";
                 echo "<td>" . $row['name'] . "</td>";
-                echo "<td>" . "placeholder" . "</td>";
+                echo "<td>" . $admin['username'] . "</td>";
                 echo "<td>" . "placeholder" . "</td>";
                 echo "</tr>";
             }
