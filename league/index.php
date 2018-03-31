@@ -2,7 +2,12 @@
     <link rel="stylesheet" href="../app.css">
 </head>
 <body>
-    <h1> TODO: Name of league </h1>
+    <?php
+        include('../database.php'); #This file is in .gitignore
+        include("../config.php");
+        if (!isset($_GET['id'])) header("Location: ../leagues/");
+        $leagueId = $_GET['id'];
+    ?>
     <table>
         <!-- TODO: League data -->
     </table>
