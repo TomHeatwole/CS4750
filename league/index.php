@@ -16,8 +16,18 @@
             exit();
         }
         echo "<h1>". $ln['name'] . "</h1>";
+        echo "<table><tr>";
+        echo "<th>Player</th>";
+        echo "<th>ELO</th>";
+        echo "<th>League Record</th>";
+        $result = $conn->query("SELECT *, l.l_losses - l.l_wins AS difference FROM BelongsTo b NATURAL JOIN LeagueRecord  l NATURAL JOIN Player p WHERE league_id=" . $leagueId . " ORDER BY difference");
+        while ($row = $result->fetch_assoc()) {
+            echo "<tr>";
+            echo "<td>" . $row['username'] . "</td>";
+            echo "<td>" . $row['elo'] . "</td>";
+            echo "<td>" . $row['l_wins'] . " - " . $row["l_losses"] . "</td>";
+            echo "</tr>";
+        }
+        echo "</table>";
     ?>
-    <table>
-        <!-- TODO: League data -->
-    </table>
 </body>
