@@ -30,5 +30,6 @@
             echo "</tr>";
         }
         echo "</table>";
+        echo "<br><br><a href='../seasons?id=" . $leagueId . "'>" . $ln['name'] . "'s Seasons</a>";
     ?>
 </body>
