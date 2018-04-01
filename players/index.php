@@ -20,7 +20,7 @@
                 // if (!$pd['COUNT(username)']) $pd['COUNT(username)'] = 0;
                 // if (!$pd['AVG(elo)']) $pd['AVG(elo)'] = 'N/A';
                 echo "<tr>";
-                echo "<td>" . $row['username'] . "</td>";
+                echo "<td><a href='../player?id=" . $row['username'] . "'>" . $row['username'] . "</a></td>";
                 echo "<td>" . $row['elo'] . "</td>";
                 echo "<td>" . $row['wins'] . "</td>";
                 echo "<td>" . $row['losses'] . "</td>";
