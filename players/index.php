@@ -13,7 +13,7 @@
         <?php
             include('../database.php'); #This file is in .gitignore
             $conn = mysqli_connect($host, $username, $password, $database);
-            $result = $conn->query("SELECT * FROM Player");
+            $result = $conn->query("SELECT * FROM Player ORDER BY elo");
             while ($row = $result->fetch_assoc()) {
                 echo "<tr>";
                 echo "<td><a href='../player?username=" . $row['username'] . "'>" . $row['username'] . "</a></td>";
