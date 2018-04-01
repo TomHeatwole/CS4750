@@ -19,6 +19,10 @@ var submit = function() {
         dataType: "json",
         data: data
     }).done(function(data){
-        alert(JSON.stringify(data));
+        if (data == "-1") alert("Invalid input. Please check that you entered the results correctly");
+        else {
+            alert("Successfully entered match results");
+            window.location = "../players/";
+        }
     });
 }
