@@ -27,6 +27,7 @@
             echo "<td>" . (($row['username']) ? "<a href='../player?username=" . $row['username'] . "'>" . $row['username'] . "</a>" : "TBD") . "</td>";
             echo "</tr>";
         }
-
+        echo "</table>";
+        echo "<br><br><a href='../league?id=" . $leagueId . "'>Back to league</a>";
     ?>
 </body>

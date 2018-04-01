@@ -24,11 +24,12 @@
         $result = $conn->query("SELECT *, l.l_losses - l.l_wins AS difference FROM BelongsTo b NATURAL JOIN LeagueRecord  l NATURAL JOIN Player p WHERE league_id=" . $leagueId . " ORDER BY difference");
         while ($row = $result->fetch_assoc()) {
             echo "<tr>";
-            echo "<td>" . $row['username'] . "</td>";
+            echo "<td>" . "<a href='../player?username=" . $row['username'] . "'>" . $row['username'] . "</a></td>";
             echo "<td>" . $row['elo'] . "</td>";
             echo "<td>" . $row['l_wins'] . " - " . $row["l_losses"] . "</td>";
             echo "</tr>";
         }
         echo "</table>";
+        echo "<br><br><a href='../seasons?id=" . $leagueId . "'>" . $ln['name'] . "'s Seasons</a>";
     ?>
 </body>
