@@ -16,13 +16,17 @@ var submit = function() {
 	$.ajax({
         url: 'gamereport/enter.php',
         type: 'POST',
-        dataType: "json",
-        data: data
-    }).done(function(data){
-        if (data == "-1") alert("Invalid input. Please check that you entered the results correctly");
-        else {
-            alert("Successfully entered match results");
-            window.location = "../players/";
+        data: data,
+        success: function(data) {
+            if (data != "pass") alert(data);
+            else {
+                alert("Successfully entered match results");
+                window.location = "../players/";
+            }
+        },
+        error: function(data) {
+            alert("An unexpected error occurred. Check your internet connection.");
         }
     });
 }
+
