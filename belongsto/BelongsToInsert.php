@@ -1,21 +1,13 @@
 <?php
- include("../database.php"); // To connect to the database
- include("../config.php");
- $con = mysqli_connect($host, $username, $password, $database);
- // Check connection
- if (mysqli_connect_errno())
- {
- echo "Failed to connect to MySQL: " . mysqli_connect_error();
- }
- // Form the SQL query (an INSERT query)
- $belongsto="INSERT INTO Requests (username, league_id)
- VALUES
- ('$_POST[username]','$_POST[leagueID]')";
- // $leagueid="INSERT INTO LeagueRecord (league_id, username, l_wins, l_losses) VALUES ('$_POST[leagueID]', '$_POST[username]', 0, 0)";
- if (!mysqli_query($con,$belongsto))
- {
- die('Error: ' . mysqli_error($con));
- }
- echo "Request made"; // Output to user
- mysqli_close($con);
+    include("../database.php"); // To connect to the database
+    include("../config.php");
+    $conn = mysqli_connect($host, $username, $password, $database);
+    if (mysqli_connect_errno()) {
+        echo "Failed to connect to MySQL: " . mysqli_connect_error();
+    }
+    $conn->query("INSERT INTO Requests (username, league_id) VALUE ('$_POST[username]','$_POST[leagueID]')");
+    $conn->query("INSERT INTO LeagueRecord (username, league_id) VALUE ('$_POST[username]','$_POST[leagueID]')");
+
+    echo "Request made"; // Output to user
+    mysqli_close($con);
 ?> 
