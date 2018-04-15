@@ -11,10 +11,12 @@
         $hash = md5($pd);
 
         $conn = mysqli_connect($host, $username, $password, $database);
-        echo ("INSERT INTO User (username, password, first_name, last_name, email)
-        VALUES (" . "'" . $usrname . "'" . "," . "'" . $hash . "'" . ",'" . $fname . "','" . $lname . "','" . $email . "'" . ")");
+        echo ("INSERT INTO Player (username, elo, wins,losses)
+        VALUES (" . "'" . $usrname . "', 1200, 0, 0");
         $result = $conn->query("INSERT INTO User (username, password, first_name, last_name, email)
-        VALUES (" . "'" . $usrname . "'" . "," . "'" . $hash . "'" . ",'" . $fname . "','" . $lname . "','" . $email . "'" . ")");        
+        VALUES (" . "'" . $usrname . "'" . "," . "'" . $hash . "'" . ",'" . $fname . "','" . $lname . "','" . $email . "'" . ")");       
+        $another = $conn->query("INSERT INTO Player (username, elo, wins,losses)
+        VALUES (" . "'" . $usrname . "', 1200, 0, 0)");
 
         if($result) {
             session_start();
@@ -24,12 +26,12 @@
             $_SESSION["username"] = $usrname;
             echo "<script>
                 window.location = '../index.php';
-            </script>";
+           </script>";
         }
 
         else{
             echo "<script>
-                window.location = 'index.php';
+               window.location = 'index.php';
             </script>";
         }
 
