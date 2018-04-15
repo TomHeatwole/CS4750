@@ -22,7 +22,6 @@
     $sw2 = 0;
     $sl1 = 0; // season losses
     $sl2 = 0;
-    echo "SELECT l_wins, l_losses FROM LeagueRecord WHERE league_id=" . $leagueId . " AND username='" . $name2 . "'";
     if ($leagueId != "") {
         $testLeagueName2 = $conn->query("SELECT * FROM BelongsTo WHERE username='" . $name1 . "' AND league_id=" . $leagueId);
         $testLeagueName1 = $conn->query("SELECT * FROM BelongsTo WHERE username='" . $name1 . "' AND league_id=" . $leagueId);
@@ -30,12 +29,12 @@
         if (!$testLeagueName2->fetch_assoc()) $ret ="Username: " . $name2 . " is not in specified league.";
         else  {
             $leagueRecord2 = $conn->query("SELECT l_wins, l_losses FROM LeagueRecord WHERE league_id=" . $leagueId . " AND username='" . $name2 . "'");
-            $lr2 = $leagueRecord2.fetch_assoc();
+            $lr2 = $leagueRecord2->fetch_assoc();
             $lw2 = $lr2["l_wins"];
             $ll2 = $lr2["l_losses"];
             if ($seasonNumber != "" && $ret=="pass") {
                 $seasonRecord2 = $conn->query("SELECT s_wins, s_losses FROM SeasonRecord WHERE league_id='" .$leagueId . "' AND username='" . $name2 . "' AND season_number='" . $seasonNumber . "'");
-                $sr2 = $seasonRecord->fetch_assoc();
+                $sr2 = $seasonRecord2->fetch_assoc();
                 $sw2 = $sr2["s_wins"];
                 $sl2 = $sr2["s_losses"];
             }
@@ -43,17 +42,17 @@
         if (!$testLeagueName1->fetch_assoc()) $ret ="Username: " . $name1 . " is not in specified league.";
         else {
             $leagueRecord1 = $conn->query("SELECT l_wins, l_losses FROM LeagueRecord WHERE league_id='" . $leagueId . "' AND username='" . $name1 . "'");
-            $lr1 = $leagueRecord1.fetch_assoc();
+            $lr1 = $leagueRecord1->fetch_assoc();
             $lw1 = $lr1["l_wins"];
             $ll1 = $lr1["l_losses"];
             if ($seasonNumber != "" && $ret=="pass") {
                 $seasonRecord1 = $conn->query("SELECT s_wins, s_losses FROM SeasonRecord WHERE league_id='" .$leagueId . "' AND username='" . $name1 . "' AND season_number='" . $seasonNumber . "'");
-                $sr1 = $seasonRecord->fetch_assoc();
+                $sr1 = $seasonRecord1->fetch_assoc();
                 $sw1 = $sr1["s_wins"];
                 $sl1 = $sr1["s_losses"];
             }
         }
-        if (!$testLeague>fetch_assoc()) $ret ="League not found.";
+        if (!$testLeague->fetch_assoc()) $ret ="League not found.";
     }
     $testName1 = $conn->query("SELECT elo, wins, losses FROM Player WHERE username='" . $name1 . "'");
     $testName2 = $conn->query("SELECT elo, wins, losses FROM Player WHERE username='" . $name2 . "'");
@@ -61,10 +60,10 @@
     $tn2 = $testName2->fetch_assoc();
     $elo1 = $tn1["elo"];
     $elo2 = $tn2["elo"];
-    $w1 = $tn1["l_wins"];
-    $l1 = $tn1["l_losses"];
-    $w2 = $tn2["l_wins"];
-    $l2 = $tn2["l_losses"];
+    $w1 = $tn1["wins"];
+    $l1 = $tn1["losses"];
+    $w2 = $tn2["wins"];
+    $l2 = $tn2["losses"];
     if (!$elo2) $ret ="Username: " . $name2 . " not found.";
     if (!$elo1) $ret ="Username: " . $name1 . " not found.";
     if ($ret == "pass") {
@@ -106,9 +105,9 @@
             $w2++;
             $lw2++;
             $sw2++;
-            $w1++;
-            $ll2++;
-            $sl2++;
+            $l1++;
+            $ll1++;
+            $sl1++;
         }
         $conn->query("INSERT INTO Game (username1, username2, winner_username) VALUES ('" . $name1 . "', '" . $name2 . "', '" . $winner . "')");
         $conn->query("UPDATE Player SET elo=" . $newElo1 . ", wins=" . $w1 . ", losses=" . $l1 . " WHERE username='" . $name1 . "'");
@@ -117,8 +116,8 @@
             $conn->query("UPDATE LeagueRecord SET l_wins=" . $lw1 . ", l_losses=" . $ll1 . " WHERE username='" . $name1 . "' AND league_id='" . $leagueId . "'");
             $conn->query("UPDATE LeagueRecord SET l_wins=" . $lw2 . ", l_losses=" . $ll2 . " WHERE username='" . $name2 . "' AND league_id='" . $leagueId . "'");
         } if ($seasonNumber != "") {
-            $conn->query("UPDATE LeagueRecord SET s_wins=" . $sw1 . ", s_losses=" . $sl1 . " WHERE username='" . $name1 . "' AND league_id='" . $leagueId . "' AND season_number=" . $seasonNumber);
-            $conn->query("UPDATE LeagueRecord SET s_wins=" . $sw2 . ", s_losses=" . $sl2 . " WHERE username='" . $name2 . "' AND league_id='" . $leagueId . "' AND season_number=" . $seasonNumber);
+            $conn->query("UPDATE SeasonRecord SET s_wins=" . $sw1 . ", s_losses=" . $sl1 . " WHERE username='" . $name1 . "' AND league_id='" . $leagueId . "' AND season_number=" . $seasonNumber);
+            $conn->query("UPDATE SeasonRecord SET s_wins=" . $sw2 . ", s_losses=" . $sl2 . " WHERE username='" . $name2 . "' AND league_id='" . $leagueId . "' AND season_number=" . $seasonNumber);
         }
     }
     echo $ret; 
