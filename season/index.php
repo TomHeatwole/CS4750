@@ -41,14 +41,15 @@
             echo "<td>" . $row['elo'] . "</td>";
             echo "<td>" . $row['s_wins'] . "</td>";
             echo "<td>" . $row['s_losses'] . "</td>";
+            echo "</tr>";
         }
         echo "</table>";
         echo "<br><br><a href='../seasons?id=" . $leagueId . "'>Back to list of seasons</a>";
     ?>
 
     <br>
-    <h1>End Season Results</h1>
+    <h2>End Season</h2>
     Winner: <input type="text" id="winner"><br>
-    <br><button onclick="endseason()">End Season</button><br>
+    <br><button onclick="endSeason()">End Season</button><br>
     <p style="color: red" id="error"></p>
 </body>
