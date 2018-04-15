@@ -1,5 +1,7 @@
 <head>
     <link rel="stylesheet" href="../app.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="league/lg.js"></script>
 </head>
 <body>
     <?php
@@ -29,6 +31,23 @@
             echo "<td>" . $row['l_wins'] . " - " . $row["l_losses"] . "</td>";
             echo "</tr>";
         }
+        echo "</table>";
+
+        $requests = $conn->query("SELECT * FROM Requests WHERE league_id=" . $leagueId);
+        echo "<h1>Requests</h1>";
+        echo "<table><tr>";
+        echo "<th>Player</th>";
+        echo "<th>Accept</th>";
+        echo "</tr>";
+        while ($row = $requests->fetch_assoc()) {
+            echo "<tr>";
+            echo "<td>" . "<a href='../player?username=" . $row['username'] . "'>" . $row['username'] . "</a></td>";
+            ?>
+            <td><button id = "<?php echo $row['username']; ?>" type = 'Button' onclick = "accept(this.id)">Accept</button></td>
+            <?php
+            echo "</tr>";
+        }
+
         echo "</table>";
         echo "<br><br><a href='../seasons?id=" . $leagueId . "'>" . $ln['name'] . "'s Seasons</a>";
     ?>
