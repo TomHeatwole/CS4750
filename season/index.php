@@ -1,5 +1,7 @@
 <head>
     <link rel="stylesheet" href="../app.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="season/season.js"></script>
 </head>
 <body>
     <?php
@@ -43,4 +45,10 @@
         echo "</table>";
         echo "<br><br><a href='../seasons?id=" . $leagueId . "'>Back to list of seasons</a>";
     ?>
+
+    <br>
+    <h1>End Season Results</h1>
+    Winner: <input type="text" id="winner"><br>
+    <br><button onclick="endseason()">End Season</button><br>
+    <p style="color: red" id="error"></p>
 </body>
