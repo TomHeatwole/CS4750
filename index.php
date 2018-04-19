@@ -3,10 +3,12 @@
         include('database.php'); #This file is in .gitignore
         include("config.php");
 
-        if(session_status() == PHP_SESSION_ACTIVE){
+
+        if(!$_SESSION["username"]==""){
             echo "<h2>User: " . $_SESSION["username"] . "</h2>";
+            echo "<a href='logout.php' class='btn btn-success'>Logout</a><br>";
         }
-        if(session_status() == PHP_SESSION_NONE){
+        else{
             echo "No one is logged in";
         }
         echo "<h1>Elo League Tracker</h1>";
