@@ -1,11 +1,10 @@
 <head>
     <link rel="stylesheet" href="../app.css">
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="jquery.js"></script>
     <script type="text/javascript" src="gamereport/gr.js"></script>
 </head>
 <body>
     <h1>Report Game Reslts</h1>
-    Your username: <input type="text" id="u1"><br>
     Opponent username: <input type="text" id="u2"><br>
     Did you win? 
     <select id="winner">
