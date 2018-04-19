@@ -2,6 +2,8 @@
         include('../database.php'); #This file is in .gitignore
         include("../config.php");
 
+        session_start();
+
         $usrname = $_POST["uname"];
         $pd = $_POST["psw"];
 
@@ -11,6 +13,9 @@
         $userData = $result->fetch_assoc() or die($conn->error);;
         $hash = md5($pd);
 
+        $admin = $conn->query("SELECT * FROM Admin WHERE username = '" . $usrname . "'");
+
+
         if(!$userData) {
             echo "<h1>User: " . $usrname . " not found</h1>";
             echo "<a href='../auth'>Back to Login</a>";
@@ -18,16 +23,26 @@
         }
 
         if($hash == $userData['password']) {
-        	session_start();
+        	
             $_SESSION["firstname"] = $first_name;
             $_SESSION["lastname"] = $last_name;
             $_SESSION["email"] = $email;
             $_SESSION["username"] = $usrname;
-        	echo "<script>
-			    window.location = '../index.php';
-			</script>";
+            if($usrname == "god"){
+                $_SESSION["usertype"] = "god";
+            }
+            else if(mysqli_num_rows($admin)>0){
+                $_SESSION["usertype"] = "admin";
+            }
+            else{
+                $_SESSION["usertype"] = "normie";
+            }
+            echo "<script>
+                window.location = '../index.php';
+           </script>";
         }
         else{
+            $_SESSION = array();
         	echo "<script>
 			    window.location = 'index.php';
 			</script>";

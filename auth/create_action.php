@@ -1,7 +1,10 @@
 <?php
+        session_start();
+
         include('../database.php'); #This file is in .gitignore
         include("../config.php");
 
+        
 
         $fname = $_POST["fname"];
         $lname = $_POST["lname"];
@@ -18,18 +21,33 @@
         $another = $conn->query("INSERT INTO Player (username, elo, wins,losses)
         VALUES (" . "'" . $usrname . "', 1200, 0, 0)");
 
+        $admin = $conn->query("SELECT * FROM Admin WHERE username = '" . $usrname . "'");
+
         if($result) {
-            session_start();
+            
             $_SESSION["firstname"] = $first_name;
             $_SESSION["lastname"] = $last_name;
             $_SESSION["email"] = $email;
             $_SESSION["username"] = $usrname;
+
+            if($usrname == "god"){
+                $_SESSION["usertype"] = "god";
+            }
+            else if(mysqli_num_rows($admin)>0){
+                $_SESSION["usertype"] = "admin";
+            }
+            else{
+                $_SESSION["usertype"] = "normie";
+            }
+            echo "Made account";
             echo "<script>
                 window.location = '../index.php';
            </script>";
         }
 
         else{
+            $_SESSION = array();
+            echo "Failed";
             echo "<script>
                window.location = 'index.php';
             </script>";
