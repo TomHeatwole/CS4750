@@ -1,5 +1,7 @@
 <head>
     <link rel="stylesheet" href="../app.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="seasons/sn.js"></script>
 </head>
 <body>
     <?php
@@ -28,6 +30,10 @@
             echo "</tr>";
         }
         echo "</table>";
+        ?>
+        <br>Enter new season name: <input type="text" id="u1"><br>
+        <button id='newSeason' type='Button' onclick='create()'>Create new season</button>
+        <?php
         echo "<br><br><a href='../league?id=" . $leagueId . "'>Back to league</a>";
     ?>
 </body>
