@@ -2,6 +2,8 @@
         include('../database.php'); #This file is in .gitignore
         include("../config.php");
 
+        session_start();
+
         $usrname = $_POST["uname"];
         $pd = $_POST["psw"];
 
@@ -21,7 +23,7 @@
         }
 
         if($hash == $userData['password']) {
-        	session_start();
+        	
             $_SESSION["firstname"] = $first_name;
             $_SESSION["lastname"] = $last_name;
             $_SESSION["email"] = $email;
@@ -40,6 +42,7 @@
            </script>";
         }
         else{
+            $_SESSION = array();
         	echo "<script>
 			    window.location = 'index.php';
 			</script>";
