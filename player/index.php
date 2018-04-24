@@ -1,10 +1,11 @@
-<head>
-    <link rel="stylesheet" href="../app.css">
-</head>
-<body>
+<?php
+    include('../database.php'); #This file is in .gitignore
+?>
+<script>document.getElementById("players").classList.add("active");</script>
+<div id="inner" style="margin-left: 35%; text-align: left">
     <?php
-        include('../database.php'); #This file is in .gitignore
-        include("../config.php");
+//        include('../database.php'); #This file is in .gitignore
+//        include("../config.php");
         if (!isset($_GET['username'])) header("Location: ../players/");
         $usrname = $_GET['username']; #Note difference between database variable: username and query param: usrname
         $conn = mysqli_connect($host, $username, $password, $database);
@@ -27,4 +28,4 @@
         echo "<br>";
         echo "<div href='../players'>List of players</div>";
     ?>
-</body>
+</div>

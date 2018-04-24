@@ -3,6 +3,7 @@
         include('auth_database.php');
         include("../config.php");
     ?>
+    <script>document.getElementById("home").classList.add("active");</script>
     <div id="inner" style="margin-left: 35%; text-align: left">
 
 

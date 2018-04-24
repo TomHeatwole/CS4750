@@ -5,6 +5,7 @@
 <?php
 include("../database.php");
 ?>
+<script>document.getElementById("leagues").classList.add("active");</script>
 <div id="inner" style="margin-left: 35%; text-align: left">
     <?php
 //        include('../database.php'); #This file is in .gitignore

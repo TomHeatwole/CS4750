@@ -1,6 +1,7 @@
 <?php
 include("../database.php");
 ?>
+<script>document.getElementById("leagues").classList.add("active");</script>
 <div id="inner" style="margin-left: 35%; text-align: left">
     <h1> Leagues </h1>
     <table>

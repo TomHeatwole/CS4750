@@ -5,6 +5,7 @@ session_start();
 if ($_SESSION["usertype"]) echo "<script>window.location='./';</script>";
 ?>
 
+<script>document.getElementById("home").classList.add("active");</script>
 <div id="inner" style="margin-left: 35%; text-align: left">
 
 

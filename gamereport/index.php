@@ -5,6 +5,7 @@ include("../database.php");
     <script src="jquery.js"></script>
     <script type="text/javascript" src="gamereport/gr.js"></script>
 </head>
+<script>document.getElementById("gamereport").classList.add("active");</script>
 <div id="inner" style="margin-left: 35%; text-align: left">
     <h1>Report Game Reslts</h1>
     Opponent username: <input type="text" id="u2"><br>

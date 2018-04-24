@@ -1,6 +1,7 @@
 <?php
 include('../database.php'); #This file is in .gitignore
 ?>
+<script>document.getElementById("games").classList.add("active");</script>
 <div id="inner" style="margin-left: 35%; text-align: left">
     <h1> Games </h1>
     <table>

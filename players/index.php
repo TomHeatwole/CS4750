@@ -2,6 +2,7 @@
 include("../database.php");
 ?>
 
+<script>document.getElementById("players").classList.add("active");</script>
 <div id="inner" style="margin-left: 35%; text-align: left">
     <h1> Players </h1>
     <table>

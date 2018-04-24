@@ -3,6 +3,7 @@ session_start();
 include('database.php'); #This file is in .gitignore
 ?>
 <div id="inner" style="margin-left: 35%; text-align: left">
+<script>document.getElementById("home").classList.add("active");</script>
 
 <?php
 echo "<h1>Hello, " . $_SESSION["username"] . "</h2>";
