@@ -1,12 +1,14 @@
 <head>
-    <link rel="stylesheet" href="../app.css">
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script type="text/javascript" src="seasons/sn.js"></script>
 </head>
-<body>
+<?php
+    include('../database.php'); #This file is in .gitignore
+?>
+<div id="inner" style="margin-left: 35%; text-align: left">
     <?php
-        include('../database.php'); #This file is in .gitignore
-        include("../config.php");
+//        include('../database.php'); #This file is in .gitignore
+//        include("../config.php");
         if (!isset($_GET['id'])) header("Location: ../leagues/");
         $leagueId = $_GET['id'];
         $conn = mysqli_connect($host, $username, $password, $database);
@@ -36,4 +38,4 @@
         <?php
         echo "<br><br><a href='../league?id=" . $leagueId . "'>Back to league</a>";
     ?>
-</body>
+</div>

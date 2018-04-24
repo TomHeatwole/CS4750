@@ -1,7 +1,8 @@
-<head>
-    <link rel="stylesheet" href="../app.css">
-</head>
-<body>
+<?php
+include("../database.php");
+?>
+
+<div id="inner" style="margin-left: 35%; text-align: left">
     <h1> Players </h1>
     <table>
         <tr>
@@ -11,7 +12,7 @@
             <th>Losses</th>
         <tr>
         <?php
-            include('../database.php'); #This file is in .gitignore
+//            include('../database.php'); #This file is in .gitignore
             $conn = mysqli_connect($host, $username, $password, $database);
             $result = $conn->query("SELECT * FROM Player ORDER BY elo DESC");
             while ($row = $result->fetch_assoc()) {
@@ -24,4 +25,4 @@
             }
         ?>
     </table>
-</body>
+</div>

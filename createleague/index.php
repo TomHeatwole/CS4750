@@ -1,6 +1,8 @@
-<html>
-<body>
-<h2>Add League and Admin</h2>
+<?php
+include("../database.php");
+?>
+<div id="inner" style="margin-left: 35%; text-align: left">
+<h2>Create League</h2>
 <BR>
 <form action="createleague/createleague.php" method="post">
     Name of League: <input type="text" name = "name"><br>
@@ -10,5 +12,4 @@
 <!-- Age: <input type="text" name="age"> -->
 <input type="Submit">
 </form>
-</body>
-</html> 
+</div>

@@ -1,15 +1,16 @@
 <head>
-    <link rel="stylesheet" href="../app.css">
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script type="text/javascript" src="season/season.js"></script>
 </head>
-<body>
+<?php
+include("../database.php");
+?>
+<div id="inner" style="margin-left: 35%; text-align: left">
     <?php
-        include('../database.php'); #This file is in .gitignore
-        include("../config.php");
+//        include('../database.php'); #This file is in .gitignore
+//        include("../config.php");
         if (!isset($_GET['id'])) header("Location: ../leagues/");
         $leagueId = $_GET['id'];
-        $conn = mysqli_connect($host, $username, $password, $database);
         $leagueName = $conn->query("SELECT name FROM League WHERE league_id=" . $leagueId);
         $ln = $leagueName->fetch_assoc();
         if (!$ln) {
@@ -52,4 +53,4 @@
     Winner: <input type="text" id="winner"><br>
     <br><button onclick="endSeason()">End Season</button><br>
     <p style="color: red" id="error"></p>
-</body>
+</div>

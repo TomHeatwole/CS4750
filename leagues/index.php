@@ -1,7 +1,7 @@
-<head>
-    <link rel="stylesheet" href="../app.css">
-</head>
-<body>
+<?php
+include("../database.php");
+?>
+<div id="inner" style="margin-left: 35%; text-align: left">
     <h1> Leagues </h1>
     <table>
         <tr>
@@ -11,7 +11,7 @@
             <th>Average ELO</th>
         <tr>
         <?php
-            include('../database.php');
+//            include('../database.php');
             $conn = mysqli_connect($host, $username, $password, $database);
             $result = $conn->query("SELECT * FROM League NATURAL JOIN Moderates");
             while ($row = $result->fetch_assoc()) {
@@ -28,4 +28,4 @@
             }
         ?>
     </table>
-</body>
+</div>

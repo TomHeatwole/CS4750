@@ -1,12 +1,13 @@
 <head>
-    <link rel="stylesheet" href="../app.css">
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script type="text/javascript" src="league/lg.js"></script>
 </head>
-<body>
-    <?php
-        include('../database.php'); #This file is in .gitignore
-        include("../config.php");
+<?php
+    include('../database.php'); #This file is in .gitignore
+?>
+<div id="inner" style="margin-left: 35%; text-align: left">
+<?php
+//        include("../config.php");
         if (!isset($_GET['id'])) header("Location: ../leagues/");
         $leagueId = $_GET['id'];
         $conn = mysqli_connect($host, $username, $password, $database);
@@ -54,4 +55,5 @@
         echo "<br><br><a href='../seasons?id=" . $leagueId . "'>" . $ln['name'] . "'s Seasons</a>";
         echo "<br><br><button id='req' onclick='request()' style='display: none'>Request to join</button>"
     ?>
-</body>
+</div>
+
