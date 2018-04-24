@@ -6,7 +6,6 @@ include("config.php");
 
 if(!$_SESSION["username"]==""){
     echo "<h2>User: " . $_SESSION["username"] . "</h2>";
-    echo "<a href='logout.php' class='btn btn-success'>Logout</a><br>";
 }
 else{
     echo "No one is logged in";
