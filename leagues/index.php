@@ -15,7 +15,7 @@
             $conn = mysqli_connect($host, $username, $password, $database);
             $result = $conn->query("SELECT * FROM League NATURAL JOIN Moderates");
             while ($row = $result->fetch_assoc()) {
-                $playerData = $conn->query("SELECT COUNT(username), AVG(elo) FROM BelongsTo NATURAL JOIN Player WHERE league_id=" . $row['league_id'] ." GROUP BY league_id");
+                $playerData = $conn->query("SELECT COUNT(username), AVG(elo) FROM LeagueRecord NATURAL JOIN Player WHERE league_id=" . $row['league_id'] ." GROUP BY league_id");
                 $pd = $playerData->fetch_assoc();
                 if (!$pd['COUNT(username)']) $pd['COUNT(username)'] = 0;
                 if (!$pd['AVG(elo)']) $pd['AVG(elo)'] = 'N/A';

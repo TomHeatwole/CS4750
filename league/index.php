@@ -23,7 +23,7 @@
         echo "<th>ELO</th>";
         echo "<th>League Record</th>";
         echo "</tr>";
-        $result = $conn->query("SELECT *, l.l_losses - l.l_wins AS difference FROM BelongsTo b NATURAL JOIN LeagueRecord  l NATURAL JOIN Player p WHERE league_id=" . $leagueId . " ORDER BY difference");
+        $result = $conn->query("SELECT *, l.l_losses - l.l_wins AS difference FROM LeagueRecord  l NATURAL JOIN Player p WHERE league_id=" . $leagueId . " ORDER BY difference");
         while ($row = $result->fetch_assoc()) {
             echo "<tr>";
             echo "<td>" . "<a href='../player?username=" . $row['username'] . "'>" . $row['username'] . "</a></td>";

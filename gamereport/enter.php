@@ -24,8 +24,8 @@ $sw2 = 0;
 $sl1 = 0; // season losses
 $sl2 = 0;
 if ($leagueId != "") {
-    $testLeagueName2 = $conn->query("SELECT * FROM BelongsTo WHERE username='" . $name1 . "' AND league_id=" . $leagueId);
-    $testLeagueName1 = $conn->query("SELECT * FROM BelongsTo WHERE username='" . $name1 . "' AND league_id=" . $leagueId);
+    $testLeagueName2 = $conn->query("SELECT * FROM LeagueRecord WHERE username='" . $name1 . "' AND league_id=" . $leagueId);
+    $testLeagueName1 = $conn->query("SELECT * FROM LeagueRecord WHERE username='" . $name1 . "' AND league_id=" . $leagueId);
     $testLeague = $conn->query("SELECT * From League WHERE league_id=". $leagueId);
     if (!$testLeagueName2->fetch_assoc()) $ret ="Username: " . $name2 . " is not in specified league.";
     else  {

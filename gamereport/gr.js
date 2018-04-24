@@ -27,3 +27,27 @@ var submit = function() {
     });
 }
 
+var getSeasons = function() {
+    var selectSeason = document.getElementById("sn");
+    for ( ; selectSeason.firstChild; selectSeason.removeChild(selectSeason.firstChild));
+    var noSeason = document.createElement("option");
+    noSeason.value = "";
+    noSeason.appendChild(document.createTextNode("N/A"));
+    selectSeason.append(noSeason);
+    var league = document.getElementById("id").value;
+    if (!league) return;
+    $.ajax({
+        url: 'gamereport/get_seasons.php',
+        type: 'POST',
+        data: {"id" : league},
+        success: function(data) {
+            var seasons = data.split("\n");
+            for (var i = 0; i < seasons.length - 1; i+= 2) {
+                var option = document.createElement("option");
+                option.value = seasons[i]; 
+                option.appendChild(document.createTextNode(seasons[i + 1]));
+                selectSeason.appendChild(option);
+            }
+        }
+    });
+}
