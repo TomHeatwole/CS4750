@@ -1,3 +1,6 @@
+<?php
+include("../database.php");
+?>
 <head>
     <link rel="stylesheet" href="../app.css">
 </head>
@@ -11,7 +14,7 @@
             <th>Average ELO</th>
         <tr>
         <?php
-            include('../database.php');
+//            include('../database.php');
             $conn = mysqli_connect($host, $username, $password, $database);
             $result = $conn->query("SELECT * FROM League NATURAL JOIN Moderates");
             while ($row = $result->fetch_assoc()) {

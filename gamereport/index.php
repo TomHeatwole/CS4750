@@ -1,3 +1,6 @@
+<?php
+include("../database.php");
+?>
 <head>
     <link rel="stylesheet" href="../app.css">
     <script src="jquery.js"></script>
@@ -14,7 +17,6 @@
     League (If this match was associated with a league): <select id="id" onclick="getSeasons()"><option value="">N/A</option>
 
 <?php
-include("../database.php");
 $result = $conn->query("SELECT name, league_id FROM League");
 while ($row = $result->fetch_assoc()) echo "<option value='" . $row['league_id'] . "'>" . $row['name'] . "</option>"
 ?>
