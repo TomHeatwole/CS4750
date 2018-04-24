@@ -23,5 +23,5 @@
 
     <br>
 
-    <a href = "create_account.php">Create an Account</a>
+    <a href = "auth/create_account.php">Create an Account</a>
 </body>

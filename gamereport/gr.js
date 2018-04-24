@@ -1,5 +1,4 @@
 var submit = function() {
-    var u2 = document.getElementById("u2").value;
     var data = {
         "u2" : document.getElementById("u2").value,
         "winner" : (document.getElementById("winner").value == "Yes") ? true : false,
@@ -16,7 +15,7 @@ var submit = function() {
         type: 'POST',
         data: data,
         success: function(data) {
-            if (data != "pass") alert(data);
+            if (data.trim() !== "pass") alert(data);
             else {
                 alert("Successfully entered match results");
                 window.location = "../players/";

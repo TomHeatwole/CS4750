@@ -3,10 +3,10 @@ include('../database.php'); #This file is in .gitignore
 include("../config.php");
 $conn = mysqli_connect($host, $username, $password, $database);
 $ret = "pass";
+session_start();
 $name1 = $_SESSION["username"];
 $name2 = $_POST["u2"];
-$winner = $_["winner"] ? $name1 : $name2;
-echo $name1  ."2:" .$name2;
+$winner = $_POST["winner"] ? $name1 : $name2;
 $leagueId = $_POST["league"];
 $seasonNumber = $_POST["season"];
 if ($name1 == $name2) $ret = "You can't play against yourself";
