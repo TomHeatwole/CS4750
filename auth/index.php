@@ -1,13 +1,10 @@
-<?php
-include("../database.php");
-?>
 <head>
     <link rel="stylesheet" href="../app.css">
 </head>
 <body>
     <?php
-//        include('auth_database.php');
-//        include("../config.php");
+        include('auth_database.php');
+        include("../config.php");
         session_start();
         if ($_SESSION["usertype"]) echo "<script>window.location='./';</script>";
     ?>
