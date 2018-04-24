@@ -1,10 +1,7 @@
 <?php
 include('../database.php'); #This file is in .gitignore
 ?>
-<head>
-    <link rel="stylesheet" href="../app.css">
-</head>
-<body>
+<div id="inner" style="margin-left: 35%; text-align: left">
     <h1> Games </h1>
     <table>
         <tr>
@@ -29,4 +26,4 @@ include('../database.php'); #This file is in .gitignore
             }
         ?>
     </table>
-</body>
+</div>

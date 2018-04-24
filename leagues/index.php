@@ -1,10 +1,7 @@
 <?php
 include("../database.php");
 ?>
-<head>
-    <link rel="stylesheet" href="../app.css">
-</head>
-<body>
+<div id="inner" style="margin-left: 35%; text-align: left">
     <h1> Leagues </h1>
     <table>
         <tr>
@@ -31,4 +28,4 @@ include("../database.php");
             }
         ?>
     </table>
-</body>
+</div>

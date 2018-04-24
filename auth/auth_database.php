@@ -26,11 +26,6 @@
             <i class="fa fa-check"></i> &nbsp; Enter Results
         </a>
     </li>
-    <li>
-        <a href="logout.php">
-            <i class="fa fa-sign-out"></i> &nbsp; Sign Out
-        </a>
-    </li>
 </ul>
 <?php
     $username = "CS4750tgh8xnd";

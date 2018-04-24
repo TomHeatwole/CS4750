@@ -1,11 +1,9 @@
-<head>
-    <link rel="stylesheet" href="../app.css">
-</head>
 <body>
     <?php
         include('auth_database.php');
         include("../config.php");
     ?>
+    <div id="inner" style="margin-left: 35%; text-align: left">
 
 
     <h1>Create an Account</h1>

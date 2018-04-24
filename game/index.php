@@ -1,10 +1,10 @@
-<head>
-    <link rel="stylesheet" href="../app.css">
-</head>
-<body>
+<?php
+    include('../database.php'); #This file is in .gitignore
+?>
+<div id="inner" style="margin-left: 35%; text-align: left">
     <?php
-        include('../database.php'); #This file is in .gitignore
-        include("../config.php");
+//       include('../database.php'); #This file is in .gitignore
+//       include("../config.php");
         if (!isset($_GET['id'])) header("Location: ../games/");
         $usrname = $_GET['id']; #Note difference between database variable: username and query param: usrname
         $conn = mysqli_connect($host, $username, $password, $database);
@@ -24,4 +24,4 @@
 
         echo "<a href='../games'>List of all Games</a>";
     ?>
-</body>
+</div>

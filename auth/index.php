@@ -1,13 +1,11 @@
-<head>
-    <link rel="stylesheet" href="../app.css">
-</head>
-<body>
-    <?php
-        include('auth_database.php');
-        include("../config.php");
-        session_start();
-        if ($_SESSION["usertype"]) echo "<script>window.location='./';</script>";
-    ?>
+<?php
+include('auth_database.php');
+include("../config.php");
+session_start();
+if ($_SESSION["usertype"]) echo "<script>window.location='./';</script>";
+?>
+
+<div id="inner" style="margin-left: 35%; text-align: left">
 
 
     <h1>Login</h1>
@@ -26,4 +24,6 @@
     <br>
 
     <a href = "auth/create_account.php">Create an Account</a>
-</body>
+
+
+</div>
