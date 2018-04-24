@@ -1,5 +1,5 @@
 <?php
-include("../database.php"); // To connect to the database
+include("../database_only.php"); // To connect to the database
 include("../config.php");
 $conn = mysqli_connect($host, $username, $password, $database);
 // Check connection

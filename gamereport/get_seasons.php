@@ -1,6 +1,6 @@
 <?php
 
-include("../database.php");
+include("../database_only.php");
 
 $id = $_POST["id"];
 $result = $conn->query("SELECT name, season_number FROM Season WHERE league_id='$id'");

@@ -1,6 +1,5 @@
 <?php
-    include('../database.php'); #This file is in .gitignore
-    include("../config.php");
+    include('../database_only.php'); #This file is in .gitignore
     $conn = mysqli_connect($host, $username, $password, $database);
     $ret = "pass";
     $username = $_POST["username"];

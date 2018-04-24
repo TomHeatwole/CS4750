@@ -17,7 +17,7 @@ $.ajax({
     type: 'POST',
     data: { "id" : id },
     success: function(data) {
-        if (data.trim() == "pass") document.getElementById("reqList").style = "display: lol";
+        if (data.trim() == "pass") document.getElementById("reqListDiv").style = "display: lol";
     },
     error: function() {
         alert("An unknown error occurred with request table");

@@ -37,7 +37,7 @@ var getSeasons = function() {
     var league = document.getElementById("id").value;
     if (!league) return;
     $.ajax({
-        url: 'gamereport/get_seasons.php',
+        url: '/gamereport/get_seasons.php',
         type: 'POST',
         data: {"id" : league},
         success: function(data) {

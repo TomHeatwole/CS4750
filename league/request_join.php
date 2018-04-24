@@ -3,7 +3,7 @@
 # Return true when "request join league" is successful
 
 
-include("../database.php");
+include("../database_only.php");
 
 $ret = "pass";
 $id = $_POST["id"];

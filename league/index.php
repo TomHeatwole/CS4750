@@ -1,6 +1,6 @@
 <head>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-    <script type="text/javascript" src="league/lg.js"></script>
+    <script type="text/javascript" src="/league/lg.js"></script>
 </head>
 <?php
     include('../database.php'); #This file is in .gitignore
@@ -36,8 +36,9 @@
         echo "</table>";
 
         $requests = $conn->query("SELECT * FROM Requests WHERE league_id=" . $leagueId);
+        echo "<div style='display: none' id='reqListDiv'>";
         echo "<h1>Requests</h1>";
-        echo "<table id='reqList' style='display: none'><tr>";
+        echo "<table id='reqList'><tr>";
         echo "<th>Player</th>";
         echo "<th>Accept</th>";
         echo "<th>Decline</th>";
@@ -52,7 +53,7 @@
             echo "</tr>";
         }
 
-        echo "</table>";
+        echo "</table></div>";
         echo "<br><br><a href='../seasons?id=" . $leagueId . "'>" . $ln['name'] . "'s Seasons</a>";
         echo "<br><br><button id='req' onclick='request()' style='display: none'>Request to join</button>"
     ?>

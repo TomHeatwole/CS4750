@@ -3,7 +3,7 @@
 # Return true when logged in user is league admin and there are >=1 requests pending
 
 
-include("../database.php");
+include("../database_only.php");
 
 $ret = "fail";
 $id = $_POST["id"];
