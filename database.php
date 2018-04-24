@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="stylesheet.css"/>
 <?php
 
 #    This file handles:
