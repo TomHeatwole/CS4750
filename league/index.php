@@ -50,5 +50,6 @@
 
         echo "</table>";
         echo "<br><br><a href='../seasons?id=" . $leagueId . "'>" . $ln['name'] . "'s Seasons</a>";
+        echo "<br><br><button id='req' onclick='request()' style='display: none'>Request to join</button>"
     ?>
 </body>

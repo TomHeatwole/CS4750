@@ -3,7 +3,6 @@
     include("../config.php");
     $conn = mysqli_connect($host, $username, $password, $database);
     $ret = "pass";
-
     $username = $_POST["username"];
     $league_id = $_POST["id"];
     $conn->query("INSERT INTO BelongsTo (username, league_id) VALUES ('" . $username . "', '" . $league_id . "')");
