@@ -1,6 +1,6 @@
 <?php
 
-# Return true when "request join league" button should be shown
+# Return true when "request join league" is successful
 
 
 include("../database.php");

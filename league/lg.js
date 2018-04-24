@@ -30,7 +30,7 @@ var accept = function(clicked_id) {
         "id" : id    
     };
     $.ajax({
-        url: 'league/enter.php',
+        url: 'league/accept.php',
         type: 'POST',
         data: data,
         success: function(data) {
@@ -44,6 +44,28 @@ var accept = function(clicked_id) {
             alert("An unexpected error occurred. Check your internet connection.");
         }
     });
+}
+
+var decline = function(clicked_id) {
+    var data = {
+        "username" : clicked_id,
+        "id" : id    
+    };
+    $.ajax({
+        url: 'league/decline.php',
+        type: 'POST',
+        data: data,
+        error: function() {
+            alert("An unknown error occurred while declining the request");
+        }
+    });
+    var list = document.getElementById("reqList");
+    var rows = list.getElementsByTagName("tr");
+    for (var i = 0; i < rows.length; i++) {
+        if (rows[i].id == clicked_id + "ROW") rows[i].parentElement.removeChild(rows[i]);
+    }
+    if (rows.length == 1) list.style = "display: none";
+    alert("Request declined for user: " + clicked_id);
 }
 
 var request = function(clicked_id) {

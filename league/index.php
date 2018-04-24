@@ -38,12 +38,14 @@
         echo "<table id='reqList' style='display: none'><tr>";
         echo "<th>Player</th>";
         echo "<th>Accept</th>";
+        echo "<th>Decline</th>";
         echo "</tr>";
         while ($row = $requests->fetch_assoc()) {
-            echo "<tr>";
+            echo "<tr id='" . $row["username"] . "ROW'>";
             echo "<td>" . "<a href='../player?username=" . $row['username'] . "'>" . $row['username'] . "</a></td>";
             ?>
             <td><button id = "<?php echo $row['username']; ?>" type = 'Button' onclick = "accept(this.id)">Accept</button></td>
+            <td><button id = "<?php echo $row['username']; ?>" type = 'Button' onclick = "decline(this.id)">Decline</button></td>
             <?php
             echo "</tr>";
         }

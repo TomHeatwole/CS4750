@@ -1,6 +1,6 @@
 <?php
 
-# Return true when "request join league" button should be shown
+# Return true when logged in user is league admin and there are >=1 requests pending
 
 
 include("../database.php");
