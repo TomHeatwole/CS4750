@@ -5,7 +5,7 @@ $.ajax({
     type: 'POST',
     data: { "id" : id },
     success: function(data) {
-        if (data.trim() == "true") document.getElementById("req").style = "display: lol";
+        if (data.trim() == "pass") document.getElementById("req").style = "display: lol";
     },
     error: function() {
         console.log("error occurred with request button");
@@ -37,5 +37,19 @@ var accept = function(clicked_id) {
 }
 
 var request = function(clicked_id) {
-    var data = { "id" : id };
+    $.ajax({
+        url: 'league/request_join.php',
+        type: 'POST',
+        data: { "id" : id },
+        success: function(data) {
+            if (data.trim() != "pass") alert(data);
+            else {
+                alert("Your request has been made and will be reviewed by the league admin");
+                window.location.reload(true);
+            }
+        },
+        error: function() {
+            alert("An unknown error occurred while processing the request");
+        }
+    });
 }
