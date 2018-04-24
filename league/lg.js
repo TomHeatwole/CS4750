@@ -8,11 +8,21 @@ $.ajax({
         if (data.trim() == "pass") document.getElementById("req").style = "display: lol";
     },
     error: function() {
-        console.log("error occurred with request button");
+        alert("An unknown error occurred with request button");
     }
 });
 
-
+$.ajax({
+    url: 'league/show_request_table.php',
+    type: 'POST',
+    data: { "id" : id },
+    success: function(data) {
+        if (data.trim() == "pass") document.getElementById("reqList").style = "display: lol";
+    },
+    error: function() {
+        alert("An unknown error occurred with request table");
+    }
+});
 
 var accept = function(clicked_id) {
     var data = {

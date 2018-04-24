@@ -14,7 +14,8 @@ $id = $leagueId->fetch_assoc()["league_id"];
 $Admin="INSERT INTO Admin (username, phone_number)
     VALUES
     ('$_POST[username]','$_POST[phone_number]')";
-$conn->query("INSERT INTO Moderates (username, league_id) VALUES ('$_POST[name]', '$id')");
+$conn->query("INSERT INTO Moderates (username, league_id) VALUES ('$_POST[username]', '$id')");
+$conn->query($Admin);
 
 echo "Records added"; // Output to user
 mysqli_close($con);
