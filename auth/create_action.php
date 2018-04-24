@@ -1,7 +1,7 @@
 <?php
         session_start();
 
-        include('../database.php'); #This file is in .gitignore
+        include('auth_database.php'); #This file is in .gitignore
         include("../config.php");
 
         

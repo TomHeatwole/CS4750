@@ -3,8 +3,10 @@
 </head>
 <body>
     <?php
-        include('../database.php'); #This file is in .gitignore
+        include('auth_database.php');
         include("../config.php");
+        session_start();
+        if ($_SESSION["usertype"]) echo "<script>window.location='./';</script>";
     ?>
 
 
