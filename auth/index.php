@@ -1,8 +1,6 @@
 <?php
 include('auth_database.php');
-include("../config.php");
-session_start();
-if ($_SESSION["usertype"]) echo "<script>window.location='./';</script>";
+if ($_SESSION["usertype"]) echo "<script>window.location='/';</script>";
 ?>
 
 <script>document.getElementById("home").classList.add("active");</script>
