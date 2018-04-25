@@ -1,5 +1,6 @@
 var recover = function() {
     var str = document.getElementById("data").value;
+    document.getElementById('loading').style = "";
     $.ajax({
         url: '/data/execute_recovery.php',
         type: 'POST',
@@ -16,11 +17,11 @@ var recover = function() {
 
 
 var clearDatabase = function() {
+    document.getElementById('loading').style = "";
     $.ajax({
         url: '/data/execute_clear.php',
         type: 'POST',
         success: function(data) {
-            console.log(data);
             alert("Data has been cleared");
             window.location="/";
         },

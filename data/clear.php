@@ -9,3 +9,5 @@ if ($type != 'god') echo "<script>window.location='/';</script>";
 
 <button onclick="clearDatabase()">Clear Database</button>
 
+<h2 id="loading" style="display: none">Data is being cleared. Please wait...</h2>
+

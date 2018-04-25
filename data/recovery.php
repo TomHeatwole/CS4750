@@ -2,7 +2,6 @@
 include('../database.php'); #This file is in .gitignore
 if ($type != 'god') echo "<script>window.location='/';</script>";
 ?>
-<script src="/data/data.js"></script>
 <div id="inner" style="margin-left: 35%; text-align: left">
 
 <h1> Recover data from JSON </h1>
@@ -13,4 +12,9 @@ if ($type != 'god') echo "<script>window.location='/';</script>";
 
 
 <br><br><button onclick="recover()"> Recover </button>
+
+
+<script src="/data/data.js"></script>
+
+<h2 id="loading" style="display: none">Data is being recovered. Please wait...</h2>
 
