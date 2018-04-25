@@ -8,6 +8,7 @@ if ($type != 'god') echo "<script>window.location='/';</script>";
 <h1> WARNING: This can't be undone unless exported JSON data is saved</h1>
 
 <button onclick="clearDatabase()">Clear Database</button>
+<br><br>
+<img style="display: none" id="loading" src="/loading.png"/>
 
-<h2 id="loading" style="display: none">Data is being cleared. Please wait...</h2>
 

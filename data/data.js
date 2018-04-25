@@ -6,6 +6,7 @@ var recover = function() {
         type: 'POST',
         data: { "str" : str },
         success: function(data) {
+            document.getElementById('loading').style = "display: none";
             alert("Data has been recovered");
             window.location="/";
         },
@@ -22,6 +23,7 @@ var clearDatabase = function() {
         url: '/data/execute_clear.php',
         type: 'POST',
         success: function(data) {
+            document.getElementById('loading').style = "display: none";
             alert("Data has been cleared");
             window.location="/";
         },

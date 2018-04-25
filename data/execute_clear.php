@@ -8,5 +8,5 @@ for ($i = 0; $i < 10; $i++) {
     $table = $tables[$i];
     $conn->query("DELETE FROM $table");
 }
-$conn->query("DELETE FROM $user WHERE username!='god'");
+$conn->query("DELETE FROM User WHERE username!='god'");
 ?>

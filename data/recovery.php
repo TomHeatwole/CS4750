@@ -15,6 +15,6 @@ if ($type != 'god') echo "<script>window.location='/';</script>";
 
 
 <script src="/data/data.js"></script>
-
-<h2 id="loading" style="display: none">Data is being recovered. Please wait...</h2>
+<br><br>
+<img style="display: none" id="loading" src="/loading.png"/>
 

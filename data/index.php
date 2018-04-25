@@ -36,7 +36,7 @@ for ($i = 0; $i < 10; $i++) {
 }
 
 $result = $conn->query("SELECT * FROM User WHERE username!='god'");
-while ($row = mysqli_fetch_array($result, MYSQLI_NUM)) $data[] = array("table"=> $table, "values"=> $row); 
+while ($row = mysqli_fetch_array($result, MYSQLI_NUM)) $data[] = array("table"=> "User", "values"=> $row); 
 
 
 
