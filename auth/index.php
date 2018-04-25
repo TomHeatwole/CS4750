@@ -1,5 +1,4 @@
 <?php
-session_start();
 include('auth_database.php');
 
 include("../config.php");

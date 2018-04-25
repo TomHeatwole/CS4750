@@ -20,7 +20,7 @@ include("../database.php");
             echo "<a href='../leagues'>List of leagues</a>";
             exit();
         }
-        if (!isset($_GET['num'])) header("Location: ../seasons?id=" . $leagueId);
+        if (!isset($_GET['num'])) echo "<script>window.location='/seasons'</script>";
         $seasonNumber = $_GET['num'];
         $seasonName = $conn->query("SELECT name FROM Season WHERE league_id=" . $leagueId . " AND season_number= " . $seasonNumber);
         $sn = $seasonName->fetch_assoc();
