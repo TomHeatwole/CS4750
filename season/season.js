@@ -25,7 +25,7 @@ var endSeason = function() {
             if (data != "pass") alert(data);
             else {
                 alert("Successfully ended season");
-                window.location = "../season?id=" + getQueryVariable("id");
+                window.location = "../seasons?id=" + getQueryVariable("id");
             }
         },
         error : function(data) {

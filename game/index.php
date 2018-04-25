@@ -21,6 +21,7 @@
         echo "<b>Second Player:</b> " . $gameData['username2'] . "</br>";
         echo "<b>Winner:</b> " . $gameData['winner_username'] . "</br>";
         echo "<b>Date:</b> " . $gameData['date'] . "</br>";
+        echo "<b>Score:</b> " . $gameData['score'] . "</br>";
         echo "<br>";
 
         echo "<a href='../games'>List of all Games</a>";
