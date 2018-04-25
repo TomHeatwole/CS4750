@@ -40,9 +40,9 @@
                 $_SESSION["usertype"] = "normie";
             }
             echo "Made account";
-            /*echo "<script>
+            echo "<script>
                 window.location = '../index.php';
-           </script>";*/
+           </script>";
         }
 
         else{
