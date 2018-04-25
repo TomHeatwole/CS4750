@@ -1,3 +1,10 @@
+var createNewSeason = function() {
+    document.getElementById("createSeason").style = "";
+    document.getElementById("showCreateSeasonButton").style = "display : none";
+}
+
+
+
 var create = function(){
 	var data = {
         "u1" : document.getElementById("u1").value.trim(),
