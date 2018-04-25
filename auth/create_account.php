@@ -1,8 +1,8 @@
-<body>
 <?php
 session_start();
 include('auth_database.php');
 ?>
+<body>
     <script>document.getElementById("home").classList.add("active");</script>
     <div id="inner" style="margin-left: 35%; text-align: left">
 
