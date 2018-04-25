@@ -12,7 +12,7 @@ include("../database.php");
         <div style="display: table-cell">
             Opponent username:  &nbsp; <br><br>
             Did you win?  &nbsp; <br><br>
-            Score: &nbsp; <br><br>
+            Enter Set Score: &nbsp; <br><br>
             League:  &nbsp; <br><br>
             Season:  &nbsp; 
         </div>
