@@ -13,43 +13,50 @@ $conn = mysqli_connect($host, $username, $password, $database);
 $result = $conn->query("SELECT * FROM League NATURAL JOIN LeagueRecord NATURAL JOIN Player WHERE username='" . $_SESSION["username"] . "'");
 $result2 = $conn->query("SELECT * FROM Game WHERE username1='" . $_SESSION["username"] . "' OR username2='" . $_SESSION["username"] . "' ORDER BY game_id DESC");
 echo "<h3>Your Leagues</h3>";
-echo "<table><tr>";
-echo "<th>Name</th>";
-echo "<th>Wins</th>";
-echo "<th>Losses</th>";
-
-echo "</tr>";
-while($row = $result->fetch_assoc())
-{
-    echo "<tr>";
-
-    echo "<td><a href='/league?id=" . $row["league_id"] . "'>" . $row['name'] . "</a></td>";
-    echo "<td>" . $row['l_wins'] . "</td>";
-    echo "<td>" . $row['l_losses'] . "</td>";
+if (mysqli_num_rows($result) > 0) {
+    echo "<table id='leagues'><tr>";
+    echo "<th>Name</th>";
+    echo "<th>Wins</th>";
+    echo "<th>Losses</th>";
 
     echo "</tr>";
-}
-echo "</table>";
-echo "<h3>Your Games</h3>";
-echo "<table><tr>";
-echo "<th>Game ID</th>";
-echo "<th>Player 1</th>";
-echo "<th>Player 2</th>";
-echo "<th>Result</th>";
-echo "</tr>";
+    while($row = $result->fetch_assoc())
+    {
 
-while($row = $result2->fetch_assoc())
-{
-    $gameResult = ($name === $row['winner_username']) ? "W" : "L";
-    echo "<tr>";
-    echo "<td><a href='/game?id=" . $row["game_id"] . "'>" . $row['game_id'] . "</td>";
-    echo "<td><a href='/player?username=" . $row['username1'] . "'>" . $row['username1'] . "</td>";
-    echo "<td><a href='/player?username=" . $row['username2'] . "'>" . $row['username2'] . "</td>";
-    echo "<td><b>" . $gameResult . "</b></td>";
 
+        echo "<tr>";
+
+        echo "<td><a href='/league?id=" . $row["league_id"] . "'>" . $row['name'] . "</a></td>";
+        echo "<td>" . $row['l_wins'] . "</td>";
+        echo "<td>" . $row['l_losses'] . "</td>";
+
+        echo "</tr>";
+    }
+    echo "</table>";
+} else echo "<i>You are not a member of any leagues</i>";
+
+echo "<br><br><h3>Your Games</h3>";
+if (mysqli_num_rows($result2) > 0) {
+    echo "<table><tr>";
+    echo "<th>Game ID</th>";
+    echo "<th>Player 1</th>";
+    echo "<th>Player 2</th>";
+    echo "<th>Result</th>";
     echo "</tr>";
-}
-echo "</table>";
+
+    while($row = $result2->fetch_assoc())
+    {
+        $gameResult = ($name === $row['winner_username']) ? "W" : "L";
+        echo "<tr>";
+        echo "<td><a href='/game?id=" . $row["game_id"] . "'>" . $row['game_id'] . "</td>";
+        echo "<td><a href='/player?username=" . $row['username1'] . "'>" . $row['username1'] . "</td>";
+        echo "<td><a href='/player?username=" . $row['username2'] . "'>" . $row['username2'] . "</td>";
+        echo "<td><b>" . $gameResult . "</b></td>";
+
+        echo "</tr>";
+    }
+    echo "</table>";
+} else echo "<i>You have not played any games</i>";
 ?>
 
 
