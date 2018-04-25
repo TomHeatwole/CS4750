@@ -11,6 +11,7 @@ include('../database.php'); #This file is in .gitignore
             <th>Second Player</th>
             <th>Winner</th>
             <th>Date</th>
+            <th>Score</th>
         <tr>
         <?php
             $conn = mysqli_connect($host, $username, $password, $database);
@@ -22,6 +23,7 @@ include('../database.php'); #This file is in .gitignore
                 echo "<td>" . $row['username2'] . "</td>";
                 echo "<td>" . $row['winner_username'] . "</td>";
                 echo "<td>" . $row['date'] . "</td>";
+                echo "<td>" . $row['score'] . "</td>";
 
                 echo "</tr>";
             }
