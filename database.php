@@ -56,6 +56,12 @@ $database = "CS4750tgh8xn";
 $name = $_SESSION["username"];
 $conn = mysqli_connect($host, $username, $password, $database);
 
+if (mysqli_connect_errno())
+{
+    echo "Failed to connect to MySQL: " . mysqli_connect_error();
+    // TODO: Have this redirect to some error page
+    // Remember to do in both database files
+}
 
 
 ?>
