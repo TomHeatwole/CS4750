@@ -35,9 +35,18 @@
         }
         echo "</table>";
         ?>
-        <br>Enter new season name: <input type="text" id="u1"><br>
-        <button id='newSeason' type='Button' onclick='create()'>Create new season</button>
-        <?php
+
+        <br>
+        <br><button id="showCreateSeasonButton" onclick="createNewSeason()">Create New Season</button><br>
+        <div id="createSeason" style="display: none;">
+            <h2>Create New Season</h2>
+            Enter New Season Name: <input type="text" id="u1"><br><br>
+            <button onclick="create()">Submit</button><br>
+        </div>
+        <p style="color: red" id="error"></p>
+
+       
+    <?php
         echo "<br><br><a href='../league?id=" . $leagueId . "'>Back to League</a>";
     ?>
 </div>

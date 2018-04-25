@@ -17,6 +17,10 @@
         $result = $conn->query("INSERT INTO User (username, password, first_name, last_name, email)
         VALUES (" . "'" . $usrname . "'" . "," . "'" . $hash . "'" . ",'" . $fname . "','" . $lname . "','" . $email . "'" . ")");       
 
+        $another = $conn->query("INSERT INTO Player (username, elo, wins, losses)
+        VALUES (" . "'" . $usrname . "', 1200, 0, 0)");
+
+
         $admin = $conn->query("SELECT * FROM Admin WHERE username = '" . $usrname . "'");
 
         if($result) {
@@ -36,9 +40,9 @@
                 $_SESSION["usertype"] = "normie";
             }
             echo "Made account";
-            echo "<script>
+            /*echo "<script>
                 window.location = '../index.php';
-           </script>";
+           </script>";*/
         }
 
         else{
