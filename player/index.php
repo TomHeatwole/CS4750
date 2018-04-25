@@ -27,9 +27,7 @@
             echo ", " . $row['league_id'];
         }
         echo "<br>";
-<<<<<<< HEAD
-        echo "<br><br><a href='../players/'>List of Players</a>";
-=======
+
         echo "<br><br><a href='../players/'>List of Players</a><br>";
         
         echo "<h3>List of Games for " . $usrname . "</h3>";
@@ -51,6 +49,5 @@
         }
         echo "</table>";
 
->>>>>>> ac7e67921a561c65eea5f4908c04744bb144cf69
     ?>
 </div>
