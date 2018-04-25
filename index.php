@@ -39,18 +39,17 @@ echo "<br><br><h3>Your Games</h3>";
 if (mysqli_num_rows($result2) > 0) {
     echo "<table><tr>";
     echo "<th>Game ID</th>";
-    echo "<th>Player 1</th>";
-    echo "<th>Player 2</th>";
+    echo "<th>Opponent</th>";
     echo "<th>Result</th>";
     echo "</tr>";
 
     while($row = $result2->fetch_assoc())
     {
         $gameResult = ($name === $row['winner_username']) ? "W" : "L";
+        $opponent = ($name == $row['username1']) ? $row['username2'] : $row['username1'];
         echo "<tr>";
         echo "<td><a href='/game?id=" . $row["game_id"] . "'>" . $row['game_id'] . "</td>";
-        echo "<td><a href='/player?username=" . $row['username1'] . "'>" . $row['username1'] . "</td>";
-        echo "<td><a href='/player?username=" . $row['username2'] . "'>" . $row['username2'] . "</td>";
+        echo "<td><a href='/player?username=" . $opponent . "'>" . $opponent . "</td>";
         echo "<td><b>" . $gameResult . "</b></td>";
 
         echo "</tr>";

@@ -1,6 +1,3 @@
-<?php
-session_start();
-?>
 <link rel="stylesheet" href="/stylesheet.css"/>
 <script src="/jquery.js"></script>
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
@@ -36,24 +33,11 @@ session_start();
         </a>
     </li>
 </ul>
-<?php
-#    This file handles:
-#    - Redirecting if user isn't logged in
-#    - Getting session variables
-#    - Setting database variables to correct permissions based on user type
-#    - Setting up the database connection
+<div id="inner" style="margin-left: 35%; text-align: left">
 
 
-$type = $_SESSION["usertype"];
-if (!$type) echo "<script>window.location='/auth'</script>";
-$username = ($type == "god") ? "CS4750tgh8xna" : "CS4750tgh8xnc" ;
-if ($type == "admin") $username = "CS4750tgh8xnb";
-$host = "stardock.cs.virginia.edu";
-$password = "spring2018";
-$database = "CS4750tgh8xn";
+<h1> CONNECTION FAILED :( </h1>
 
-$name = $_SESSION["username"];
-$conn = mysqli_connect($host, $username, $password, $database);
 
-if (mysqli_connect_errno()) echo "<script>window.location='/database_connection_failed.php';</script>";
-?>
+</div>
+
