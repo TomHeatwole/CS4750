@@ -1,13 +1,15 @@
+var createNewSeason = function() {
+    document.getElementById("createSeason").style = "";
+    document.getElementById("showCreateSeasonButton").style = "display : none";
+}
+
+
+
 var create = function(){
 	var data = {
-        "u1" : document.getElementById("u1").value,
+        "u1" : document.getElementById("u1").value.trim(),
         "id" : window.location.href.slice(window.location.href.indexOf("=")+1)
     };
-    if(!data["u1"]){
-    	document.getElementById("error").innerHTML = "Please enter valid season names";
-    	return;
-    }
-    // document.getElementById("error").innerHTML = "";
     $.ajax({
         url: 'seasons/create.php',
         type: 'POST',

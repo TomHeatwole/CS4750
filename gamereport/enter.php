@@ -8,6 +8,7 @@ $name2 = $_POST["u2"];
 $winner = $_POST["winner"] == "true" ? $name1 : $name2;
 $leagueId = $_POST["league"];
 $seasonNumber = $_POST["season"];
+$score = $_POST["score"];
 if ($name1 == $name2) $ret = "You can't play against yourself";
 if ($seasonNumber != "") {
     $testSeason = $conn->query("SELECT * FROM Season WHERE league_id=" . $leagueId . " AND season_number=" . $seasonNumber);
@@ -23,7 +24,7 @@ $sw2 = 0;
 $sl1 = 0; // season losses
 $sl2 = 0;
 if ($leagueId != "") {
-    $testLeagueName2 = $conn->query("SELECT * FROM LeagueRecord WHERE username='" . $name1 . "' AND league_id=" . $leagueId);
+    $testLeagueName2 = $conn->query("SELECT * FROM LeagueRecord WHERE username='" . $name2 . "' AND league_id=" . $leagueId);
     $testLeagueName1 = $conn->query("SELECT * FROM LeagueRecord WHERE username='" . $name1 . "' AND league_id=" . $leagueId);
     $testLeague = $conn->query("SELECT * From League WHERE league_id=". $leagueId);
     if (!$testLeagueName2->fetch_assoc()) $ret ="Username: " . $name2 . " is not in specified league.";
@@ -109,7 +110,7 @@ if ($ret == "pass") {
         $ll1++;
         $sl1++;
     }
-    $conn->query("INSERT INTO Game (username1, username2, winner_username) VALUES ('" . $name1 . "', '" . $name2 . "', '" . $winner . "')");
+    $conn->query("INSERT INTO Game (username1, username2, winner_username, score) VALUES ('" . $name1 . "', '" . $name2 . "', '" . $winner . "', '" . $score . "')");
     $conn->query("UPDATE Player SET elo=" . $newElo1 . ", wins=" . $w1 . ", losses=" . $l1 . " WHERE username='" . $name1 . "'");
     $conn->query("UPDATE Player SET elo=" . $newElo2 . ", wins=" . $w2 . ", losses=" . $l2 . " WHERE username='" . $name2 . "'");
     if ($leagueId != "") {

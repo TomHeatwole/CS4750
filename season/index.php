@@ -50,9 +50,19 @@ include("../database.php");
         echo "<br><br><a href='../seasons?id=" . $leagueId . "'>Back to list of seasons</a>";
     ?>
 
-    <br>
-    <h2>End Season</h2>
-    Winner: <input type="text" id="winner"><br>
-    <br><button onclick="endSeason()">End Season</button><br>
+    <?php
+        $res1 = $conn->query("SELECT username FROM Moderates WHERE league_id='$leagueId' AND username='$name'");
+        if ($res1->fetch_assoc()) {
+            echo '<br>';
+            echo '<br><button id="showEndButton" onclick="showEndSeason()">End Season</button><br>';
+            echo '<div id="endSeason" style="display: none;">';
+            echo '<h2>End Season</h2>';
+            echo 'Winner: <input type="text" id="u1"><br><br>';
+            echo '<button onclick="endSeason()">Submit</button><br>';
+            echo '</div>';
+        }
+    ?>
     <p style="color: red" id="error"></p>
+       
+
 </div>

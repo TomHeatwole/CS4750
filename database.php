@@ -2,7 +2,7 @@
 session_start();
 ?>
 <link rel="stylesheet" href="/stylesheet.css"/>
-<script src="jquery.js"></script>
+<script src="/jquery.js"></script>
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 <ul>
     <li>
@@ -56,6 +56,12 @@ $database = "CS4750tgh8xn";
 $name = $_SESSION["username"];
 $conn = mysqli_connect($host, $username, $password, $database);
 
+if (mysqli_connect_errno())
+{
+    echo "Failed to connect to MySQL: " . mysqli_connect_error();
+    // TODO: Have this redirect to some error page
+    // Remember to do in both database files
+}
 
 
 ?>

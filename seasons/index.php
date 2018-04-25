@@ -27,17 +27,38 @@
         echo "<th>Name</th>";
         echo "<th>Winner</th>";
         echo "</tr>";
-        while ($row = $result->fetch_assoc()) {
-            echo "<tr>";
-            echo "<td><a href='../season?id=" . $leagueId . "&num=" . $row['season_number'] . "'>" . $row['name'] . "</a></td>";
-            echo "<td>" . (($row['season_winner']) ? "<a href='../player?username=" . $row['season_winner'] . "'>" . $row['season_winner'] . "</a>" : "TBD") . "</td>";
-            echo "</tr>";
+        if($result->num_rows > 0){
+            while ($row = $result->fetch_assoc()) {
+                echo "<tr>";
+                echo "<td><a href='../season?id=" . $leagueId . "&num=" . $row['season_number'] . "'>" . $row['name'] . "</a></td>";
+                echo "<td>" . (($row['season_winner']) ? "<a href='../player?username=" . $row['season_winner'] . "'>" . $row['season_winner'] . "</a>" : "TBD") . "</td>";
+                echo "</tr>";
+            }
+            echo "</table>";
+        } else{
+            echo "</table>";
+            echo "No seasons exist";
         }
-        echo "</table>";
+            
         ?>
-        <br>Enter new season name: <input type="text" id="u1"><br>
-        <button id='newSeason' type='Button' onclick='create()'>Create new season</button>
         <?php
+<<<<<<< HEAD
+=======
+        $res1 = $conn->query("SELECT username FROM Moderates WHERE league_id='$leagueId' AND username='$name'");
+        if ($res1->fetch_assoc()) {
+            echo '<br>';
+            echo '<br><button id="showCreateSeasonButton" onclick="createNewSeason()">Create New Season</button><br>';
+            echo '<div id="createSeason" style="display: none;">';
+            echo '<h2>Create New Season</h2>';
+            echo 'Enter New Season Name: <input type="text" id="u1"><br><br>';
+            echo '<button onclick="create()">Submit</button><br>';
+            echo '</div>';
+        }
+        ?>
+       
+        <p style="color: red" id="error"></p>
+    <?php
+>>>>>>> ac7e67921a561c65eea5f4908c04744bb144cf69
         echo "<br><br><a href='../league?id=" . $leagueId . "'>Back to League</a>";
     ?>
 </div>

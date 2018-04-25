@@ -10,6 +10,7 @@
         $usrname = $_GET['username']; #Note difference between database variable: username and query param: usrname
         $conn = mysqli_connect($host, $username, $password, $database);
         $result = $conn->query("SELECT * FROM Player NATURAL JOIN User NATURAL JOIN LeagueRecord WHERE username='" . $usrname . "'");
+        $result2 = $conn->query("SELECT * FROM Game WHERE username1='" . $usrname . "' OR username2='" . $usrname . "'");
         $playerData = $result->fetch_assoc();
         if (!$playerData) {
             echo "<h1>Player: " . $usrname . " not found</h1>";
@@ -26,6 +27,30 @@
             echo ", " . $row['league_id'];
         }
         echo "<br>";
+<<<<<<< HEAD
         echo "<br><br><a href='../players/'>List of Players</a>";
+=======
+        echo "<br><br><a href='../players/'>List of Players</a><br>";
+        
+        echo "<h3>List of Games for " . $usrname . "</h3>";
+        echo "<table><tr>";
+        echo "<th>Game ID</th>";
+        echo "<th>Player 1</th>";
+        echo "<th>Player 2</th>";
+        echo "<th>Winner</th>";
+        echo "</tr>";
+        while($row = $result2->fetch_assoc())
+        {
+            echo "<tr>";
+            echo "<td>" . $row['game_id'] . "</td>";
+            echo "<td>" . $row['username1'] . "</td>";
+            echo "<td>" . $row['username2'] . "</td>";
+            echo "<td>" . $row['winner_username'] . "</td>";
+
+            echo "</tr>";
+        }
+        echo "</table>";
+
+>>>>>>> ac7e67921a561c65eea5f4908c04744bb144cf69
     ?>
 </div>
