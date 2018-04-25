@@ -2,11 +2,17 @@ var submit = function() {
     var data = {
         "u2" : document.getElementById("u2").value,
         "winner" : (document.getElementById("winner").value == "Yes") ? true : false,
+        "score" : document.getElementById("score").value,
         "league" : document.getElementById("id").value,
         "season" : document.getElementById("sn").value
     };
     if (!data['u2']) {
         document.getElementById("error").innerHTML = "Please enter a valid opponent username";
+        return;
+    }
+    var check_score = /^[0-9][-][0-9]$/g;
+    if (!check_score.test(data["score"])){
+        document.getElementById("error").innerHTML = "Please enter a valid score of form (ex: P1 score-P2 score)";
         return;
     }
     document.getElementById("error").innerHTML = "";

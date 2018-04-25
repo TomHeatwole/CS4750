@@ -12,6 +12,7 @@ include("../database.php");
         <div style="display: table-cell">
             Opponent username:  &nbsp; <br><br>
             Did you win?  &nbsp; <br><br>
+            Score: &nbsp; <br><br>
             League:  &nbsp; <br><br>
             Season:  &nbsp; 
         </div>
@@ -21,6 +22,7 @@ include("../database.php");
                 <option>Yes</option>
                 <option>No</option>
             </select></br><br>
+            <input type="text" id="score" placeholder="ex: P1 score-P2 score"><br><br>
             <select id="id" onclick="getSeasons()"><option value="">N/A</option>
 
 <?php
