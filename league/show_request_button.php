@@ -6,7 +6,6 @@
 include("../database_only.php");
 
 $ret = "pass";
-echo $name;
 $id = $_POST["id"];
 $res1 = $conn->query("SELECT username FROM LeagueRecord WHERE league_id='$id' AND username='$name'");
 $res2 = $conn->query("SELECT username FROM Requests WHERE league_id='$id' AND username='$name'");
