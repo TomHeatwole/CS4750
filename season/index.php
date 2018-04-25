@@ -57,7 +57,7 @@ include("../database.php");
             echo '<br><button id="showEndButton" onclick="showEndSeason()">End Season</button><br>';
             echo '<div id="endSeason" style="display: none;">';
             echo '<h2>End Season</h2>';
-            echo 'Winner: <input type="text" id="u1"><br><br>';
+            echo 'Winner: <input type="text" id="winner"><br><br>';
             echo '<button onclick="endSeason()">Submit</button><br>';
             echo '</div>';
         }
