@@ -11,9 +11,11 @@ $usrname = $_POST["uname"];
 $pd = $_POST["psw"];
 
 $conn = mysqli_connect($host, $username, $password, $database);
-$result = $conn->query("SELECT * FROM `User` WHERE username ='" . $usrname . "'");
-
-$userData = $result->fetch_assoc() or die($conn->error);;
+$result1 = $conn->prepare("SELECT * FROM `User` WHERE username =?");
+$result1->bind_param("s", $usrname);
+$result1->execute();
+$result = $result1->get_result();
+$userData = $result->fetch_assoc() or die($conn->error);
 $hash = md5($pd);
 
 $admin = $conn->query("SELECT * FROM Admin WHERE username = '" . $usrname . "'");
