@@ -6,7 +6,10 @@ include('database.php'); #This file is in .gitignore
 <script>document.getElementById("home").classList.add("active");</script>
 
 <?php
-echo "<h1>Hello, " . $_SESSION["username"] . "</h2>";
+if($_SESSION["username"]){
+	echo "<h1>Hello, " . $_SESSION["username"] . "</h2>";
+}
+
 ?>
 
 

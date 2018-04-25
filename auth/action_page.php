@@ -1,9 +1,11 @@
 <?php
+session_start();
+
 
 include('auth_database.php');
 include("../config.php");
 
-session_start();
+
 
 $usrname = $_POST["uname"];
 $pd = $_POST["psw"];
