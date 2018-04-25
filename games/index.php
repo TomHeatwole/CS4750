@@ -15,7 +15,7 @@ include('../database.php'); #This file is in .gitignore
         <tr>
         <?php
             $conn = mysqli_connect($host, $username, $password, $database);
-            $result = $conn->query("SELECT * FROM Game");
+            $result = $conn->query("SELECT * FROM Game ORDER BY date DESC");
             while ($row = $result->fetch_assoc()) {
                 echo "<tr>";
                 echo "<td><a href='../game?id=" . $row['game_id'] . "'>" . "Game " . $row['game_id'] . "</a></td>";
