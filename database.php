@@ -1,3 +1,6 @@
+<?php
+session_start()
+?>
 <link rel="stylesheet" href="/stylesheet.css"/>
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 <ul>
@@ -41,7 +44,6 @@
 #    - Setting up the database connection
 
 
-session_start();
 $type = $_SESSION["usertype"];
 if (!$type) echo "<script>window.location='/auth'</script>";
 $username = ($type == "god") ? "CS4750tgh8xna" : "CS4750tgh8xnc" ;
