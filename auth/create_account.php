@@ -1,5 +1,6 @@
 <body>
 <?php
+session_start();
 include('auth_database.php');
 ?>
     <script>document.getElementById("home").classList.add("active");</script>
