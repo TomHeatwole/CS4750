@@ -1,7 +1,7 @@
 var id = window.location.href.slice(window.location.href.indexOf("=")+1);
 
 $.ajax({
-    url: 'league/show_request_button.php',
+    url: '/league/show_request_button.php',
     type: 'POST',
     data: { "id" : id },
     success: function(data) {
@@ -13,7 +13,7 @@ $.ajax({
 });
 
 $.ajax({
-    url: 'league/show_request_table.php',
+    url: '/league/show_request_table.php',
     type: 'POST',
     data: { "id" : id },
     success: function(data) {
@@ -30,7 +30,7 @@ var accept = function(clicked_id) {
         "id" : id    
     };
     $.ajax({
-        url: 'league/accept.php',
+        url: '/league/accept.php',
         type: 'POST',
         data: data,
         success: function(data) {
@@ -52,7 +52,7 @@ var decline = function(clicked_id) {
         "id" : id    
     };
     $.ajax({
-        url: 'league/decline.php',
+        url: '/league/decline.php',
         type: 'POST',
         data: data,
         error: function() {
@@ -70,7 +70,7 @@ var decline = function(clicked_id) {
 
 var request = function(clicked_id) {
     $.ajax({
-        url: 'league/request_join.php',
+        url: '/league/request_join.php',
         type: 'POST',
         data: { "id" : id },
         success: function(data) {

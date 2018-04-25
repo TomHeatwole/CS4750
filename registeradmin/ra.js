@@ -8,5 +8,16 @@ var register = function() {
         document.getElementById("error").style = "color: red";
         return;
     }
-    console.log("nice phone number");
+    $.ajax({
+        url: '/registeradmin/reg.php',
+        type: 'POST',
+        data: {"phone" : phone},
+        success: function(data) {
+            alert("You are now registered as an admin user");
+            window.location = "/createleague";
+        },
+        error: function() {
+            alert("An unknown error occurred");
+        }
+    });
 }
