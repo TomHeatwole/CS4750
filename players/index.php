@@ -26,4 +26,5 @@ include("../database.php");
             }
         ?>
     </table>
+    <br><br><br><a href="/data"> Export Player Data </a>
 </div>
