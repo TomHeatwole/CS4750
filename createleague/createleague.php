@@ -12,6 +12,14 @@ $conn->query($Admin);
 
 echo "Records added"; // Output to user
 mysqli_close($con);*/
-echo "league gets created here";
+
+$n = $_POST['n'];
+$conn->query("INSERT INTO League (name) VALUES ('$n')");
+$result = $conn->query("SELECT MAX(league_id) FROM League");
+$id = $result->fetch_assoc()["MAX(league_id)"];
+$conn->query("INSERT INTO Moderates (league_id, username) VALUES ('$id', '$name')");
+$conn->query("INSERT INTO LeagueRecord (league_id, username) VALUES ('$id', '$name')");
+
+echo $id;
 ?> 
 

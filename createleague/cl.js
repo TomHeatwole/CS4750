@@ -10,9 +10,8 @@ var create = function() {
         type: 'POST',
         data: {"n" : n},
         success: function(data) {
-            console.log(data);
             alert("League: " + n + " has been created.");
-            window.location = "/leagues"; // TODO: Go to actual league
+            window.location = "/league?id=" + data; // TODO: Go to actual league
         },
         error: function() {
             alert("An unknown error occurred");

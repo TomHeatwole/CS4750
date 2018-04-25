@@ -3,7 +3,6 @@
 ?>
 <head>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-    <script type="text/javascript" src="/league/lg.js"></script>
 </head>
 
 <script>document.getElementById("leagues").classList.add("active");</script>
@@ -62,3 +61,4 @@
     ?>
 </div>
 
+    <script type="text/javascript" src="/league/lg.js"></script>
