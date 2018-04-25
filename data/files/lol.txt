@@ -1,0 +1,2 @@
+This file exists purely because git wont recognize the /data/files directory even exists
+if everything inside it is gitignored.

@@ -1,9 +1,11 @@
 <?php
 session_start();
 include('auth_database.php');
+
 include("../config.php");
 
 if ($_SESSION["usertype"]) echo "<script>window.location='./';</script>";
+
 ?>
 
 <script>document.getElementById("home").classList.add("active");</script>

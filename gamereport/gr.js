@@ -11,7 +11,7 @@ var submit = function() {
     }
     document.getElementById("error").innerHTML = "";
 	$.ajax({
-        url: 'gamereport/enter.php',
+        url: '/gamereport/enter.php',
         type: 'POST',
         data: data,
         success: function(data) {
