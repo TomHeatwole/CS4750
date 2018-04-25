@@ -1,5 +1,6 @@
 <?php
 include("../database.php");
+if ($type !== "admin") echo "<script>window.location='/registeradmin';</script>";
 ?>
 <div id="inner" style="margin-left: 35%; text-align: left">
 <h2>Create League</h2>
