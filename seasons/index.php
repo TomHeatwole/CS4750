@@ -1,10 +1,11 @@
+<?php
+    include('../database.php'); #This file is in .gitignore
+?>
 <head>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script type="text/javascript" src="seasons/sn.js"></script>
 </head>
-<?php
-    include('../database.php'); #This file is in .gitignore
-?>
+
 <script>document.getElementById("leagues").classList.add("active");</script>
 <div id="inner" style="margin-left: 35%; text-align: left">
     <?php
