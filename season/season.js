@@ -1,3 +1,9 @@
+var showEndSeason = function() {
+    document.getElementById("endSeason").style = "";
+    document.getElementById("showEndButton").style = "display : none";
+}
+
+
 var endSeason = function() {
 	var winner = document.getElementById("winner").value;
 	var data = {

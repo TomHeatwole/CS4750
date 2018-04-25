@@ -51,8 +51,11 @@ include("../database.php");
     ?>
 
     <br>
-    <h2>End Season</h2>
-    Winner: <input type="text" id="winner"><br>
-    <br><button onclick="endSeason()">End Season</button><br>
+    <br><button id="showEndButton" onclick="showEndSeason()">End Season</button><br>
+    <div id="endSeason" style="display: none;">
+        <h2>End Season</h2>
+        Winner: <input type="text" id="winner"><br><br>
+        <button onclick="endSeason()">Submit</button><br>
+    </div>
     <p style="color: red" id="error"></p>
 </div>
