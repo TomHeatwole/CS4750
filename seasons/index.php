@@ -42,8 +42,6 @@
             
         ?>
         <?php
-<<<<<<< HEAD
-=======
         $res1 = $conn->query("SELECT username FROM Moderates WHERE league_id='$leagueId' AND username='$name'");
         if ($res1->fetch_assoc()) {
             echo '<br>';
@@ -58,7 +56,6 @@
        
         <p style="color: red" id="error"></p>
     <?php
->>>>>>> ac7e67921a561c65eea5f4908c04744bb144cf69
         echo "<br><br><a href='../league?id=" . $leagueId . "'>Back to League</a>";
     ?>
 </div>
