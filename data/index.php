@@ -24,7 +24,7 @@ $exportFile = 'files/' . $rand . '.json';
 $handle = fopen($exportFile, 'w') or die('Cannot open file:  '. $exportFile); //implicitly creates file
 
 
-$result = $conn->query("SELECT * FROM Player"); 
+$result = $conn->query("SELECT * FROM Player ORDER BY elo DESC"); 
 while($row = $result->fetch_assoc()) {
     $result2 = $conn->query("SELECT * FROM LeagueRecord NATURAL JOIN League WHERE username='" . $row["username"] . "'");
     $leagueData = [];
