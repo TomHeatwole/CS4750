@@ -25,7 +25,7 @@ $exportFile = 'files/' . $rand . '.json';
 $handle = fopen($exportFile, 'w') or die('Cannot open file:  '. $exportFile); //implicitly creates file
 
 
-$tables = ["Admin", "Game", "League", "LeagueRecord", "Moderates", "Player", "Requests", "Season", "SeasonRecord"];
+$tables = ["Admin", "Game", "League", "LeagueRecord", "Moderates", "Requests", "Season", "SeasonRecord", "User"];
 $data = [];
 for ($i = 0; $i < 10; $i++) {
     $table = $tables[$i];
@@ -34,11 +34,6 @@ for ($i = 0; $i < 10; $i++) {
         $data[] = array("table"=> $table, "values"=> $row); 
     }
 }
-
-$result = $conn->query("SELECT * FROM User WHERE username!='god'");
-while ($row = mysqli_fetch_array($result, MYSQLI_NUM)) $data[] = array("table"=> "User", "values"=> $row); 
-
-
 
 
 fwrite($handle, json_encode($data, JSON_PRETTY_PRINT));

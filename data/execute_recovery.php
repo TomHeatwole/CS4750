@@ -16,7 +16,6 @@ for ($i = 0; $i < count($data); $i++) {
     $table = $d['table'];
     $values = getValuesString($d["values"]);
     $conn->query("INSERT INTO $table VALUES $values"); 
-    //echo "INSERT INTO $table VALUES $values";
 }
 
 ?>
