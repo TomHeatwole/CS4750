@@ -25,7 +25,12 @@ $handle = fopen($exportFile, 'w') or die('Cannot open file:  '. $exportFile); //
 
 
 $result = $conn->query("SELECT * FROM Player"); 
-while($row = $result->fetch_assoc()) $players[] = array('username'=> $row['username'],'elo'=> $row['elo'], 'wins'=> $row['wins'], 'losses'=> $row['losses']);
+while($row = $result->fetch_assoc()) {
+    $result2 = $conn->query("SELECT * FROM LeagueRecord NATURAL JOIN League WHERE username='" . $row["username"] . "'");
+    $leagueData = [];
+    while ($row2 = $result2->fetch_assoc()) $leagueData[] = array('name'=> $row2['name'], 'league_id'=> $row2['league_id'], 'wins'=> $row2['l_wins'], 'losses'=>$row2['l_losses']);
+    $players[] = array('username'=> $row['username'],'elo'=> $row['elo'], 'wins'=> $row['wins'], 'losses'=> $row['losses'], 'leagues'=> $leagueData);
+}
 
 
 fwrite($handle, json_encode($players, JSON_PRETTY_PRINT));
