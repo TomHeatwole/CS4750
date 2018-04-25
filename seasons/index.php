@@ -11,7 +11,7 @@
     <?php
 //        include('../database.php'); #This file is in .gitignore
 //        include("../config.php");
-        if (!isset($_GET['id'])) header("Location: ../leagues/");
+        if (!isset($_GET['id'])) echo "<script>window.location='/'</script>";
         $leagueId = $_GET['id'];
         $conn = mysqli_connect($host, $username, $password, $database);
         $leagueName = $conn->query("SELECT name FROM League WHERE league_id=" . $leagueId);
@@ -21,7 +21,7 @@
             echo "<a href='../leagues'>List of leagues</a>";
             exit();
         }
-        $result = $conn->query("SELECT s.season_number, s.league_id, s.name, w.username FROM Season s LEFT JOIN SeasonWinner w ON s.season_number=w.season_number AND s.league_id = w.league_id WHERE s.league_id=" . $leagueId . " ORDER BY s.season_number DESC");
+        $result = $conn->query("SELECT * FROM Season WHERE league_id=" . $leagueId . " ORDER BY season_number DESC");
         echo "<h1>". $ln['name'] . "'s Seasons</h1>";
         echo "<table><tr>";
         echo "<th>Name</th>";
@@ -30,7 +30,7 @@
         while ($row = $result->fetch_assoc()) {
             echo "<tr>";
             echo "<td><a href='../season?id=" . $leagueId . "&num=" . $row['season_number'] . "'>" . $row['name'] . "</a></td>";
-            echo "<td>" . (($row['username']) ? "<a href='../player?username=" . $row['username'] . "'>" . $row['username'] . "</a>" : "TBD") . "</td>";
+            echo "<td>" . (($row['season_winner']) ? "<a href='../player?username=" . $row['season_winner'] . "'>" . $row['season_winner'] . "</a>" : "TBD") . "</td>";
             echo "</tr>";
         }
         echo "</table>";
