@@ -39,7 +39,7 @@
 
         $requests = $conn->query("SELECT * FROM Requests WHERE league_id=" . $leagueId);
         echo "<div style='display: none' id='reqListDiv'>";
-        echo "<h1>Requests</h1>";
+        echo "<br><br><h2>Requests</h2>";
         echo "<table id='reqList'><tr>";
         echo "<th>Player</th>";
         echo "<th>Accept</th>";
