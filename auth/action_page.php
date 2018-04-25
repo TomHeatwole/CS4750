@@ -34,7 +34,7 @@ if($hash == $userData['password']) {
     if($usrname == "god"){
         $_SESSION["usertype"] = "god";
     }
-    else if(mysqli_num_rows($admin)>0){
+    else if($admin->num_rows>0){
         $_SESSION["usertype"] = "admin";
     }
     else{
