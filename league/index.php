@@ -1,15 +1,18 @@
+<?php
+    include('../database.php'); #This file is in .gitignore
+?>
 <head>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script type="text/javascript" src="/league/lg.js"></script>
 </head>
-<?php
-    include('../database.php'); #This file is in .gitignore
-?>
+
 <script>document.getElementById("leagues").classList.add("active");</script>
 <div id="inner" style="margin-left: 35%; text-align: left">
 <?php
 //        include("../config.php");
-        if (!isset($_GET['id'])) header("Location: ../leagues/");
+        if (!isset($_GET['id'])) {
+            echo "<script>window.location='/leagues'</script>";
+        }
         $leagueId = $_GET['id'];
         $conn = mysqli_connect($host, $username, $password, $database);
         $leagueName = $conn->query("SELECT name FROM League WHERE league_id=" . $leagueId);
