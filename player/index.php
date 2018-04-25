@@ -26,6 +26,6 @@
             echo ", " . $row['league_id'];
         }
         echo "<br>";
-        echo "<div href='../players'>List of players</div>";
+        echo "<br><br><a href='../players/'>List of Players</a>";
     ?>
 </div>
