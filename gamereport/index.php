@@ -7,7 +7,7 @@ include("../database.php");
 </head>
 <script>document.getElementById("gamereport").classList.add("active");</script>
 <div id="inner" style="margin-left: 35%; text-align: left">
-    <h1>Report Game Reslts</h1>
+    <h1>Report Game Results</h1>
     <div style="display: table"><div style="display: table-row">
         <div style="display: table-cell">
             Opponent username:  &nbsp; <br><br>
