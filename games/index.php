@@ -11,10 +11,11 @@ include('../database.php'); #This file is in .gitignore
             <th>Second Player</th>
             <th>Winner</th>
             <th>Date</th>
+            <th>Score</th>
         <tr>
         <?php
             $conn = mysqli_connect($host, $username, $password, $database);
-            $result = $conn->query("SELECT * FROM Game");
+            $result = $conn->query("SELECT * FROM Game ORDER BY date DESC");
             while ($row = $result->fetch_assoc()) {
                 echo "<tr>";
                 echo "<td><a href='../game?id=" . $row['game_id'] . "'>" . "Game " . $row['game_id'] . "</a></td>";
@@ -22,6 +23,7 @@ include('../database.php'); #This file is in .gitignore
                 echo "<td><a href='../player?username=" . $row['username2'] . "'>" . $row['username2'] . "</a></td>";
                 echo "<td><a href='../player?username=" . $row['winner_username'] . "'>" . $row['winner_username'] . "</a></td>";
                 echo "<td>" . $row['date'] . "</td>";
+                echo "<td>" . $row['score'] . "</td>";
 
                 echo "</tr>";
             }
