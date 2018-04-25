@@ -27,13 +27,19 @@
         echo "<th>Name</th>";
         echo "<th>Winner</th>";
         echo "</tr>";
-        while ($row = $result->fetch_assoc()) {
-            echo "<tr>";
-            echo "<td><a href='../season?id=" . $leagueId . "&num=" . $row['season_number'] . "'>" . $row['name'] . "</a></td>";
-            echo "<td>" . (($row['season_winner']) ? "<a href='../player?username=" . $row['season_winner'] . "'>" . $row['season_winner'] . "</a>" : "TBD") . "</td>";
-            echo "</tr>";
+        if($result->num_rows > 0){
+            while ($row = $result->fetch_assoc()) {
+                echo "<tr>";
+                echo "<td><a href='../season?id=" . $leagueId . "&num=" . $row['season_number'] . "'>" . $row['name'] . "</a></td>";
+                echo "<td>" . (($row['season_winner']) ? "<a href='../player?username=" . $row['season_winner'] . "'>" . $row['season_winner'] . "</a>" : "TBD") . "</td>";
+                echo "</tr>";
+            }
+            echo "</table>";
+        } else{
+            echo "</table>";
+            echo "No seasons exist";
         }
-        echo "</table>";
+            
         ?>
 
         <br>
