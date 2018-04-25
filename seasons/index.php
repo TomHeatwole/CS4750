@@ -38,6 +38,6 @@
         <br>Enter new season name: <input type="text" id="u1"><br>
         <button id='newSeason' type='Button' onclick='create()'>Create new season</button>
         <?php
-        echo "<br><br><a href='../league?id=" . $leagueId . "'>Back to league</a>";
+        echo "<br><br><a href='../league?id=" . $leagueId . "'>Back to League</a>";
     ?>
 </div>
