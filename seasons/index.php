@@ -35,16 +35,21 @@
         }
         echo "</table>";
         ?>
-
-        <br>
-        <br><button id="showCreateSeasonButton" onclick="createNewSeason()">Create New Season</button><br>
-        <div id="createSeason" style="display: none;">
-            <h2>Create New Season</h2>
-            Enter New Season Name: <input type="text" id="u1"><br><br>
-            <button onclick="create()">Submit</button><br>
-        </div>
-        <p style="color: red" id="error"></p>
-
+        <?php
+        $res1 = $conn->query("SELECT username FROM Moderates WHERE league_id='$id' AND username='$name'");
+        if ($res1->fetch_assoc()) {
+            echo '<br>';
+            echo '<br><button id="showCreateSeasonButton" onclick="createNewSeason()">Create New Season</button><br>';
+            echo '<div id="createSeason" style="display: none;">';
+            echo '<h2>Create New Season</h2>';
+            echo 'Enter New Season Name: <input type="text" id="u1"><br><br>';
+            echo '<button onclick="create()">Submit</button><br>';
+            echo '</div>';
+        echo '<p style="color: red" id="error"></p>';
+        }else{
+            echo '<p>User Is Not An Admin</p>';
+        }
+        ?>
        
     <?php
         echo "<br><br><a href='../league?id=" . $leagueId . "'>Back to League</a>";
