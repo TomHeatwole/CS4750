@@ -18,9 +18,9 @@ include('../database.php'); #This file is in .gitignore
             while ($row = $result->fetch_assoc()) {
                 echo "<tr>";
                 echo "<td><a href='../game?id=" . $row['game_id'] . "'>" . "Game " . $row['game_id'] . "</a></td>";
-                echo "<td>" . $row['username1'] . "</td>";
-                echo "<td>" . $row['username2'] . "</td>";
-                echo "<td>" . $row['winner_username'] . "</td>";
+                echo "<td><a href='../player?username=" . $row['username1'] . "'>" . $row['username1'] . "</a></td>";
+                echo "<td><a href='../player?username=" . $row['username2'] . "'>" . $row['username2'] . "</a></td>";
+                echo "<td><a href='../player?username=" . $row['winner_username'] . "'>" . $row['winner_username'] . "</a></td>";
                 echo "<td>" . $row['date'] . "</td>";
 
                 echo "</tr>";
